@@ -1,4 +1,4 @@
 Dense
 =====
 
-[Issues](https://github.com/gocom/jquery.dense.js/issues)
+[Issues](https://github.com/gocom/dense/issues)
