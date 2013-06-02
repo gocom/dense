@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8" />
+	<title>Dense</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    
+    <p class="download">
+        <code>$ <a href="http://bower.io">bower</a> install dense</code>
+        <a class="button" href="#">Download</a>
+    </p>
+
+    <p><b>Dense</b> is a <a href="http://jquery.com">jQuery</a> plugin that offers an easy way to serve device pixel ratio aware images. Clear the blurry, images be crisp. </p>
+
+    <h2>Dense as the demoman</h2>
+
+    <p><img src="img/example.jpg" /></p>
+
+    <p>Your device pixel ratio was seen as and rounded up to <span class="ratio"></span>. As such, you are seeing the <span class="ratio"></span>x variation of the above image. The image tag doesn't define <code>data-1x</code> attribute, so we are defaulting to the <code>src</code>.</p>
+
+    <p>This responsive image is implemented by simply including the plugin on the page and calling its <code>$.fn.dense()</code> initializer method.</p>
+
+    <pre class="language-html"><code>&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;dense.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $('img').dense();
+&lt;/script&gt;</code></pre>
+
+    <h2>Options</h2>
+
+    <pre class="language-javascript"><code>$('selector').dense([String method] [, Object options])</code></pre>
+
+    <p><b>Dense</b> offers few methods and options that can be used to both customize the plugin's functionality and return resulting values. All interaction is done through the <code>$.fn.dense()</code> method, that accepts a called method and its options object as its arguments. Both arguments are optional, and either one can be omitted. The following methods are available.</p>
+
+    <h3>init</h3>
+
+    <pre class="language-javascript"><code>$('selector').dense([Object options]) -&gt; this</code></pre>
+
+    <p>Renders a pixel-ratio-aware image. The init method is the default that is called if no method argument is specified.</p>
+
+    <h4>Options</h4>
+
+    <dl>
+        <dt>ping</dt>
+        <dd>A prefix added to the generated links. Default is true. <b>Boolean</b></dd>
+
+        <dt>dimension</dt>
+        <dd>Whether to keep the original dimensions or remove. Default is false. <b>Boolean</b></dd>
+    </dl>
+
+    <h4>Example</h4>
+
+    <pre class="language-javascript">$('img.retina').dense({
+    'ping'      : false,
+    'dimension' : true
+});</pre>
+
+    <h3>updateDimensions</h3>
+
+    <pre class="language-javascript"><code>$('selector').dense('updateDimensions') -&gt; this</code></pre>
+
+    <p>Sets an image's width and height attributes to its native values.</p>
+
+    <h3>devicePixelRatio</h3>
+
+    <pre class="language-javascript"><code>$('selector').dense('devicePixelRatio') -&gt; Integer</code></pre>
+
+    <p>Gets device pixel ratio rounded up to the closest integer.</p>
+
+    <h4>Example</h4>
+
+    <pre class="language-javascript"><code>var ratio = $(window).devicePixelRatio();
+alert(ratio);</code></pre>
+
+
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+    <script src="../src/dense.js"></script>
+
+    <script>
+        $('.ratio').text($(window).dense('devicePixelRatio'));
+    </script>
+
+    <script src="assets/js/rainbow.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+body {
+    background: #fff;
+    padding: 3em 10% 2em 10%;
+    color: #666;
+    font: 1.75em Helvetica, sans-serif;
+    line-height: 1.75;
+}
+
+/**
+ * Code display.
+ */
+
+code a,
+code a:hover {
+    color: inherit;
+    cursor: help;
+    text-decoration: none;
+}
+
+pre, code {
+    color: #9da8ab;
+    font-family: Inconsolata, "Courier New", Consolas, Courier, monospace;
+    background: #daeffa;
+}
+
+pre {
+    padding: 1em;
+    border: 1px solid #d0e8f0;
+    border-radius: 0.25em;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+/**
+ * Syntax highlight.
+ */
+
+pre .comment {
+    color: #998;
+}
+
+pre .support {
+    color: #0086B3;
+}
+
+pre .tag, pre .tag-name {
+    color: navy;
+}
+
+pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
+    font-weight: bold;
+}
+
+pre .css-property, pre .css-value, pre .vendor-prefix, pre .support.namespace {
+    color: #333;
+}
+
+pre .constant.numeric, pre .keyword.unit, pre .hex-color {
+    font-weight: normal;
+    color: #099;
+}
+
+pre .entity.class {
+    color: #458;
+}
+
+pre .entity.id, pre .entity.function {
+    color: #900;
+}
+
+pre .attribute, pre .variable {
+    color: teal;
+}
+
+pre .string, pre .support.value  {
+    font-weight: normal;
+    color: #d14;
+}
+
+pre .regexp {
+    color: #009926;
+}
+
+/**
+ * Definition lists.
+ */
+
+dl {
+    border: 1px solid #ddd;
+    border-radius: 0.25em;
+}
+
+dt {
+    float: left;
+    width: 30%;
+}
+
+dd {
+    float: left;
+    width: 70%;
+}
+
+dt, dd {
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+}
+
+dl > dt:nth-of-type(1), dl > dd:nth-of-type(1) {
+    border-top: 0;
+}
+
+/**
+ * Clearfix.
+ */
+
+.clearfix:after, dl:after
+{
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+/**
+ * Links
+ */
+
+a {
+    color: #37BDDB;
+}
+
+a:hover {
+    color: #1D97B3;
+}
+
+p, h1, h2, h3, h4, h5, h6, pre, blockquote, table, dl {
+    margin: 2em 0 0 0;
+}
+
+img {
+    border-radius: 0.25em;
+    padding: 0.6em;
+    border: 1px solid #ddd;
+    box-shadow: 0 0.2em 0.3em rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+header {
+    
+}
+
+.button {
+    background: #37BDDB;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 0.3em;
+    display: inline-block;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover,
+.button:focus {
+    color: #fff;
+    background: #000;
+}
+
+/**
+ * Download bar.
+ */
+
+.download {
+    padding: 0.5em 0.5em 0.5em 10%;
+    background: #daeffa;
+    color: #fff;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    margin: 0;
+    border-radius: 0 0.3em 0.3em 0;
+}
+
+.download code {
+    margin: 0 0.5em 0 0;
+}
+
+.download .button {
+    margin: -0.5em -1em -0.5em 0;
+    border-radius: 0 0.3em 0.3em 0;
+}
