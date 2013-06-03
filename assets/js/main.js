@@ -58,7 +58,7 @@ $(document).ready(function ()
                     {
                         if (param.name.indexOf('.') !== -1)
                         {
-                            dl.append($('<dt />').text(param.name.split('.').pop()));
+                            dl.append($('<dt />').text(param.name.split('.').slice(1).join('.')));
                             dl.append($('<dd />').html(param.description));
                         }
                     });
