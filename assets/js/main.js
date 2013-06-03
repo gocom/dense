@@ -29,20 +29,25 @@ $(document).ready(function ()
                 data.classes[0].classes[0].classes[0].name, 
                 constructor = data.classes[0].classes[0].classes[0].constructor;
 
-            docs.append($('<p />').text(constructor.description));
             docs.append(
-                    $('<pre class="language-javascript" />')
-                        .html($('<code />')
-                        .text(
-                            basename + '(' + renderParams(constructor.parameters) + ')'
-                        
-                        )));
+                $('<pre class="language-javascript" />')
+                    .html($('<code />').text(basename + '(' + renderParams(constructor.parameters) + ')'))
+            );
+
+            docs.append($('<p />').html(constructor.description));
 
             $.each(data.classes[0].classes[0].classes[0].functions, function (key, value)
             {
-                docs.append($('<h2 />').text(value.name));
+                docs
+                    .append($('<h2 />').text(value.name))
+                    .append($('<p />').html(value.description.replace("\n\n", "</p><p>")));
+
+                $.each(value.examples, function (key, value)
+                {
+                    docs.append($('<pre class="language-javascript" />').html($('<code />').text(value)));
+                });
             });
 
-            //alert(data.classes[0].classes[0].classes[0].name);
+            Rainbow.color();
         });
 });
