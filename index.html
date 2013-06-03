@@ -29,7 +29,7 @@
 
         <p>Your device pixel ratio was seen as and rounded up to <span class="ratio"></span>. As such, you are seeing the <span class="ratio"></span>x variation of the above image. The image tag doesn't define <code>data-<span class="ratio"></span>x</code> attribute, so we are defaulting to <code>src</code>.</p>
 
-        <p>When a <code>data-{ratio}</code> attribute isn't specified the image URL is constructed, for devices with pixel ratio higher than <b>2</b>, using the URL specified in the <code>src</code> attribute by adding a <code>_{ratio}x</code> suffix before the file extension. For instance <code>/images/hello-world.jpg</code> 2x retina image would be looked from <code>/images/hello-world_2x.jpg</code>.</p>
+        <p>When the device's pixel ratio higher than 2 and a <code>data-{ratio}</code> attribute isn't specified, the image URL is constructed using the <code>src</code> attribute value by adding a <code>_{ratio}x</code> suffix before the file extension. For instance <code>/images/hello-world.jpg</code> 2x retina image would be looked from <code>/images/hello-world_2x.jpg</code>.</p>
 
         <h2>Usage</h2>
 
