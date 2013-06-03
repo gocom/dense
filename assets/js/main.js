@@ -10,11 +10,14 @@ $(document).ready(function ()
 
         $.each(parameters, function (key, param)
         {
-            out.push(
-                (param.optional ? '[' : '') +
-                    param.type + ' ' + param.name + (param.default ? '=' + param.default : '') +
-                (param.optional ? ']' : '')
-            );
+            if (param.name.indexOf('.') === -1)
+            {
+                out.push(
+                    (param.optional ? '[' : '') +
+                        param.type + ' ' + param.name + (param.default ? '=' + param.default : '') +
+                    (param.optional ? ']' : '')
+                );
+            }
         });
 
         return out.join(', ');
@@ -53,8 +56,11 @@ $(document).ready(function ()
 
                     $.each(value.parameters, function (key, param)
                     {
-                        dl.append($('<dt />').text(param.name));
-                        dl.append($('<dd />').html(param.description));
+                        if (param.name.indexOf('.') !== -1)
+                        {
+                            dl.append($('<dt />').text(param.name.split('.').pop()));
+                            dl.append($('<dd />').html(param.description));
+                        }
                     });
 
                     docs.append(dl);
