@@ -1,0 +1,164 @@
+{
+    "classes": [
+        {
+            "name": "jQuery",
+            "description": "",
+            "extends": [
+            ],
+            "access": "",
+            "virtual": false,
+            "fires": "",
+            "constructor": {
+                "name": "jQuery",
+                "description": "",
+                "parameters": [
+                ],
+                "examples": [
+                ]
+            },
+            "classes": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "extends": [
+                    ],
+                    "access": "",
+                    "virtual": false,
+                    "fires": "",
+                    "constructor": {
+                        "name": "fn",
+                        "description": "",
+                        "parameters": [
+                        ],
+                        "examples": [
+                        ]
+                    },
+                    "classes": [
+                        {
+                            "name": "dense",
+                            "description": "",
+                            "extends": [
+                            ],
+                            "access": "",
+                            "virtual": false,
+                            "fires": "",
+                            "constructor": {
+                                "name": "dense",
+                                "description": "Renders a pixel-ratio-aware image.",
+                                "parameters": [
+                                    {
+                                        "name": "method",
+                                        "type": "String",
+                                        "description": "The called method",
+                                        "default": "init",
+                                        "optional": true,
+                                        "nullable": ""
+                                    },
+                                    {
+                                        "name": "options",
+                                        "type": "Object",
+                                        "description": "Options passed to the method",
+                                        "default": "{}",
+                                        "optional": true,
+                                        "nullable": ""
+                                    }
+                                ],
+                                "examples": [
+                                ]
+                            },
+                            "functions": [
+                                {
+                                    "name": "init",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "Renders a pixel-ratio-aware image.\n\nThe init method is the default that is called\nif no method argument is specified.",
+                                    "parameters": [
+                                        {
+                                            "name": "options",
+                                            "type": "Object",
+                                            "description": "Options",
+                                            "default": "{}",
+                                            "optional": true,
+                                            "nullable": ""
+                                        },
+                                        {
+                                            "name": "options.ping",
+                                            "type": "Boolean",
+                                            "description": "A prefix added to the generated links",
+                                            "default": "true",
+                                            "optional": true,
+                                            "nullable": ""
+                                        },
+                                        {
+                                            "name": "options.dimensions",
+                                            "type": "String",
+                                            "description": "Whether to do with the 'width' and 'height'. Either \"update\", \"remove\" or \"preserve\"",
+                                            "default": "preserve",
+                                            "optional": true,
+                                            "nullable": ""
+                                        }
+                                    ],
+                                    "examples": [
+                                        "$('img.retina').dense({\n 'ping'      : false,\n 'dimension' : true\n});"
+                                    ],
+                                    "returns": {
+                                        "type": "Object",
+                                        "description": "this"
+                                    }
+                                },
+                                {
+                                    "name": "updateDimensions",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "Sets an image's width and height attributes to its native values.",
+                                    "parameters": [
+                                    ],
+                                    "examples": [
+                                        "$('img').dense('updateDimensions');"
+                                    ],
+                                    "returns": {
+                                        "type": "Object",
+                                        "description": "this"
+                                    }
+                                },
+                                {
+                                    "name": "devicePixelRatio",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "Gets device pixel ratio rounded up to the closest integer.",
+                                    "parameters": [
+                                    ],
+                                    "examples": [
+                                        "var ratio = $(window).dense('devicePixelRatio');\nalert(ratio);"
+                                    ],
+                                    "returns": {
+                                        "type": "Integer",
+                                        "description": ""
+                                    }
+                                },
+                                {
+                                    "name": "getImageAttribute",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "Gets an appropriate URL for the pixel ratio from the data attribute list.\n\nSelects the most appropriate 'data-{ratio}x' attribute from\nthe given element's attributes.\n\nIf the devices pixel ratio is greater than the largest specified image,\nthe largest one of the available is used.",
+                                    "parameters": [
+                                    ],
+                                    "examples": [
+                                        "var image = $('<div data-1x=\"image.jpg\" data-2x=\"image_2x.jpg\" />').dense('getImageAttribute');\n$('body').css('background-image', image);"
+                                    ],
+                                    "returns": {
+                                        "type": [
+                                            "String",
+                                            "Boolean"
+                                        ],
+                                        "description": "The attribute value"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
