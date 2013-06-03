@@ -44,7 +44,7 @@
                             "fires": "",
                             "constructor": {
                                 "name": "dense",
-                                "description": "Renders a pixel-ratio-aware image.",
+                                "description": "Dense offers few methods and options that can be used to both customize the\nplugin's functionality and return resulting values. All interaction is done through\nthe <code>$.fn.dense()</code> method, that accepts a called method and its options\nobject as its arguments. Both arguments are optional, and either one can be omitted.",
                                 "parameters": [
                                     {
                                         "name": "method",
@@ -133,7 +133,7 @@
                                     ],
                                     "returns": {
                                         "type": "Integer",
-                                        "description": ""
+                                        "description": "The pixel ratio"
                                     }
                                 },
                                 {
