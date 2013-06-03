@@ -170,6 +170,7 @@ header {
 header h1 {
     margin: 0;
     line-height: 1;
+    font: 2em "Oleo Script Swash Caps";
 }
 
 header h1 a,
