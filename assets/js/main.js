@@ -27,7 +27,7 @@ $(document).ready(function ()
         {
             var basename = data.classes[0].name + '.' + data.classes[0].classes[0].name + '.' +
                 data.classes[0].classes[0].classes[0].name, 
-                constructor = data.classes[0].classes[0].classes[0].constructor;
+                constructor = data.classes[0].classes[0].classes[0].constructor, dl;
 
             docs.append(
                 $('<pre class="language-javascript" />')
@@ -39,13 +39,36 @@ $(document).ready(function ()
             $.each(data.classes[0].classes[0].classes[0].functions, function (key, value)
             {
                 docs
-                    .append($('<h2 />').text(value.name))
+                    .append($('<h3 />').text(value.name))
+                    .append(
+                        $('<pre class="language-javascript" />')
+                            .html($('<code />').text(basename + '(' + renderParams(value.parameters) + ')'))
+                    )
                     .append($('<p />').html(value.description.replace("\n\n", "</p><p>")));
 
-                $.each(value.examples, function (key, value)
+                if (value.parameters.length)
                 {
-                    docs.append($('<pre class="language-javascript" />').html($('<code />').text(value)));
-                });
+                    docs.append('<h4>Options</h4>');
+                    dl = $('<dl />');
+
+                    $.each(value.parameters, function (key, param)
+                    {
+                        dl.append($('<dt />').text(param.name));
+                        dl.append($('<dd />').html(param.description));
+                    });
+
+                    docs.append(dl);
+                }
+
+                if (value.examples.length)
+                {
+                    docs.append('<h4>Example' + (value.examples.length > 1 ? 's' : '') + '</h4>');
+
+                    $.each(value.examples, function (key, value)
+                    {
+                        docs.append($('<pre class="language-javascript" />').html($('<code />').text(value)));
+                    });
+                }
             });
 
             Rainbow.color();
