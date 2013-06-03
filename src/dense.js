@@ -327,8 +327,8 @@
     /**
      * Renders a pixel-ratio-aware image.
      *
-     * @param    {String}  [method=init]  The called method
-     * @param    {Object}  [options={}] Options passed to the method
+     * @param    {String}  [method=init] The called method
+     * @param    {Object}  [options={}]  Options passed to the method
      * @class    dense
      * @memberOf jQuery.fn
      */
