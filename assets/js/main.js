@@ -30,7 +30,8 @@ $(document).ready(function ()
         {
             var basename = data.classes[0].name + '.' + data.classes[0].classes[0].name + '.' +
                 data.classes[0].classes[0].classes[0].name, 
-                constructor = data.classes[0].classes[0].classes[0].constructor, dl;
+                constructor = data.classes[0].classes[0].classes[0].constructor, dl, params,
+                plugin = data.classes[0].classes[0].classes[0].name;
 
             docs.append(
                 $('<pre class="language-javascript" />')
@@ -41,11 +42,13 @@ $(document).ready(function ()
 
             $.each(data.classes[0].classes[0].classes[0].functions, function (key, value)
             {
+                params = renderParams(value.parameters);
+
                 docs
                     .append($('<h3 />').text(value.name))
                     .append(
                         $('<pre class="language-javascript" />')
-                            .html($('<code />').text(basename + '(' + renderParams(value.parameters) + ')'))
+                            .html($('<code />').text(basename + '(\'' + value.name + '\'' + (params ? ', ' + params : '') + ')'))
                     )
                     .append($('<p />').html(value.description.replace("\n\n", "</p><p>")));
 
