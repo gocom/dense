@@ -180,7 +180,7 @@
                 ping = options.ping && $.inArray(image, pathStack) === -1 && (regexProtocol.test(image) === false || image.indexOf('://' + document.domain) !== -1);
             }
 
-            if (ping === true && isLocal === true)
+            if (ping)
             {
                 $.ajax({
                     url  : image,
