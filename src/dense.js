@@ -255,7 +255,7 @@
     /**
      * Gets device pixel ratio rounded up to the closest integer.
      *
-     * @return   {Integer}
+     * @return   {Integer} The pixel ratio
      * @method   devicePixelRatio
      * @memberof jQuery.fn.dense
      * @example
@@ -330,7 +330,10 @@
     devicePixelRatio = methods.devicePixelRatio();
 
     /**
-     * Renders a pixel-ratio-aware image.
+     * Dense offers few methods and options that can be used to both customize the
+     * plugin's functionality and return resulting values. All interaction is done through
+     * the <code>$.fn.dense()</code> method, that accepts a called method and its options
+     * object as its arguments. Both arguments are optional, and either one can be omitted.
      *
      * @param    {String}  [method=init] The called method
      * @param    {Object}  [options={}]  Options passed to the method
