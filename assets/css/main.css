@@ -218,7 +218,7 @@ header .slogan {
 }
 
 .download code {
-    padding: 0.5em 1em;
+    padding: 0 1em;
     display: inline-block;
     line-height: 1;
     background: transparent;

@@ -80,3 +80,37 @@ $(document).ready(function ()
             Rainbow.color();
         });
 });
+
+/**
+ * Click to select.
+ */
+
+(function ()
+{
+    $('.clikhi').click(function ()
+    {
+        var copy, $this = $(this), region = $this.find('.clikhi-region');
+
+        if (region.length)
+        {
+            copy = region.get(0);
+        }
+        else
+        {
+            copy = $this.get(0);
+        }
+
+        if ($.type(document.selection) !== 'undefined')
+        {
+            var range = document.body.createTextRange();
+            range.moveToElementText(copy);
+            range.select();
+        }
+        else if ($.type(window.getSelection) !== 'undefined')
+        {
+            var range = document.createRange();
+            range.selectNode(copy);
+            window.getSelection().addRange(range);
+        }
+	});
+})();
