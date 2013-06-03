@@ -26,6 +26,17 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * @name jQuery
+ * @class
+ */
+
+/**
+ * @name fn
+ * @class
+ * @memberOf jQuery
+ */
+
 ;(function (factory)
 {
 	if (typeof define === 'function' && define.amd)
@@ -118,7 +129,7 @@
      * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
      * @param    {String}  [options.dimensions=preserve] Whether to do with the 'width' and 'height'. Either "update", "remove" or "preserve"
      * @return   {Object}  this
-     * @class    init
+     * @method   init
      * @memberof jQuery.fn.dense
      * @example
      * $('img.retina').dense({
@@ -225,7 +236,7 @@
      * Sets an image's width and height attributes to its native values.
      *
      * @return   {Object} this
-     * @class    updateDimensions
+     * @method   updateDimensions
      * @memberof jQuery.fn.dense
      * @example
      * $('img').dense('updateDimensions');
@@ -245,7 +256,7 @@
      * Gets device pixel ratio rounded up to the closest integer.
      *
      * @return   {Integer}
-     * @class    devicePixelRatio
+     * @method   devicePixelRatio
      * @memberof jQuery.fn.dense
      * @example
      * var ratio = $(window).dense('devicePixelRatio');
@@ -292,7 +303,7 @@
      * the largest one of the available is used.
      *
      * @return   {String|Boolean} The attribute value
-     * @class    getImageAttribute
+     * @method   getImageAttribute
      * @memberof jQuery.fn.dense
      * @example
      * var image = $('<div data-1x="image.jpg" data-2x="image_2x.jpg" />').dense('getImageAttribute');
