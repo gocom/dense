@@ -125,7 +125,7 @@
      * @param    {String}  [options.dimensions=preserve] Whether to do with the 'width' and 'height'. Either "update", "remove" or "preserve"
      * @return   {Object}  this
      * @class    init
-     * @memberOf jQuery.fn.dense
+     * @memberof jQuery.fn.dense
      * @example
      * $('img.retina').dense({
      *  'ping'      : false,
@@ -232,7 +232,7 @@
      *
      * @return   {Object} this
      * @class    updateDimensions
-     * @memberOf jQuery.fn.dense
+     * @memberof jQuery.fn.dense
      * @example
      * $('img').dense('updateDimensions');
      */
@@ -252,7 +252,7 @@
      *
      * @return   {Integer}
      * @class    devicePixelRatio
-     * @memberOf jQuery.fn.dense
+     * @memberof jQuery.fn.dense
      * @example
      * var ratio = $(window).dense('devicePixelRatio');
      * alert(ratio);
@@ -299,7 +299,7 @@
      *
      * @return   {String|Boolean} The attribute value
      * @class    getImageAttribute
-     * @memberOf jQuery.fn.dense
+     * @memberof jQuery.fn.dense
      * @example
      * var image = $('<div data-1x="image.jpg" data-2x="image_2x.jpg" />').dense('getImageAttribute');
      * $('body').css('background-image', image);
@@ -330,7 +330,7 @@
      * @param    {String}  [method=init] The called method
      * @param    {Object}  [options={}]  Options passed to the method
      * @class    dense
-     * @memberOf jQuery.fn
+     * @memberof jQuery.fn
      */
 
     $.fn.dense = function (method, options)
