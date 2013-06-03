@@ -228,3 +228,13 @@ header .slogan {
     margin: 0;
     border-radius: 0 0.3em 0.3em 0;
 }
+
+.download-notes {
+    font-size: 0.65em;
+    margin: 1em;
+    color: #9da8ab;
+}
+
+.download-notes a {
+    color: inherit;
+}
