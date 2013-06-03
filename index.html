@@ -11,6 +11,8 @@
     <header>
         <h1><a href="/">Dense</a></h1>
 
+        <p class="slogan">Blows your visitors' retinas</p>
+
         <p class="download">
             <code>$ bower install dense</code>
             <a class="button" href="/dist/dense.min.js">Download</a>
@@ -25,9 +27,13 @@
 
         <p><img src="img/example.jpg" /></p>
 
-        <p>Your device pixel ratio was seen as and rounded up to <span class="ratio"></span>. As such, you are seeing the <span class="ratio"></span>x variation of the above image. The image tag doesn't define <code>data-1x</code> attribute, so we are defaulting to the <code>src</code>.</p>
+        <p>Your device pixel ratio was seen as and rounded up to <span class="ratio"></span>. As such, you are seeing the <span class="ratio"></span>x variation of the above image. The image tag doesn't define <code>data-<span class="ratio"></span>x</code> attribute, so we are defaulting to <code>src</code>.</p>
 
-        <p>This responsive image is implemented by simply including the plugin on the page and calling its <code>$.fn.dense()</code> initializer method.</p>
+        <p>When a <code>data-{ratio}</code> attribute isn't specified the image URL is constructed, for devices with pixel ratio higher than <b>2</b>, using the URL specified in the <code>src</code> attribute by adding a <code>_{ratio}x</code> suffix before the file extension. For instance <code>/images/hello-world.jpg</code> 2x retina image would be looked from <code>/images/hello-world_2x.jpg</code>.</p>
+
+        <h2>Usage</h2>
+
+        <p>The above responsive, retina-ready image is implemented by simply including the jQuery plugin on the page and calling its <code>$.fn.dense()</code> initializer method.</p>
 
         <pre class="language-html"><code>&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;dense.min.js&quot;&gt;&lt;/script&gt;
