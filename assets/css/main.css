@@ -25,7 +25,7 @@ code a:hover {
 
 pre, code {
     color: #9da8ab;
-    font-family: Inconsolata, "Courier New", Consolas, Courier, monospace;
+    font: 1em Inconsolata, "Courier New", Consolas, Courier, monospace;
     background: #daeffa;
 }
 
@@ -180,7 +180,7 @@ header {
  */
 
 .download {
-    padding: 0.5em 0.5em 0.5em 10%;
+    padding: 0 0 0 10%;
     background: #daeffa;
     color: #fff;
     position: absolute;
@@ -191,10 +191,12 @@ header {
 }
 
 .download code {
-    margin: 0 0.5em 0 0;
+    padding: 0.5em 0.5em 0.5em 0;
+    line-height: 1;
+    display: inline-block;
 }
 
 .download .button {
-    margin: -0.5em -1em -0.5em 0;
+    margin: 0;
     border-radius: 0 0.3em 0.3em 0;
 }
