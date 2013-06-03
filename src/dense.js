@@ -120,9 +120,9 @@
      * The init method is the default that is called
      * if no method argument is specified.
      *  
-     * @param    {Object}  options            Options
-     * @param    {Boolean} options.ping       A prefix added to the generated links
-     * @param    {String}  options.dimensions Whether to keep the original dimensions or remove. Either "update", "remove" or "preserve"
+     * @param    {Object}  [options={}]                  Options
+     * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
+     * @param    {String}  [options.dimensions=preserve] Whether to do with the 'width' and 'height'. Either "update", "remove" or "preserve"
      * @return   {Object}  this
      * @class    init
      * @memberOf jQuery.fn.dense
@@ -327,8 +327,8 @@
     /**
      * Renders a pixel-ratio-aware image.
      *
-     * @param    {String}   method  The called method
-     * @param    {Object}   options Options passed to the method
+     * @param    {String}  [method=init]  The called method
+     * @param    {Object}  [options={}] Options passed to the method
      * @class    dense
      * @memberOf jQuery.fn
      */
