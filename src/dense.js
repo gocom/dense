@@ -122,7 +122,7 @@
      *  
      * @param    {Object}  options            Options
      * @param    {Boolean} options.ping       A prefix added to the generated links
-     * @param    {Boolean} options.dimensions Whether to keep the original dimensions or remove
+     * @param    {String}  options.dimensions Whether to keep the original dimensions or remove. Either "update", "remove" or "preserve"
      * @return   {Object}  this
      * @class    init
      * @memberOf jQuery.fn.dense
@@ -198,11 +198,11 @@
                                .attr('src', image)
                                .data('jquery-dense-original', originalImage);
 
-                            if (options.dimensions === true)
+                            if (options.dimensions === 'update')
                             {
                                 methods.updateDimensions.call($this.get(0));
                             }
-                            else
+                            else if (options.dimensions === 'remove')
                             {
                                 $this.removeAttr('width').removeAttr('height');
                             }
@@ -215,11 +215,11 @@
                     .attr('src', image)
                     .data('jquery-dense-original', originalImage);
 
-                if (options.dimensions === true)
+                if (options.dimensions === 'update')
                 {
                     methods.updateDimensions.call($this.get(0));
                 }
-                else
+                else if (options.dimensions === 'remove')
                 {
                     $this.removeAttr('width').removeAttr('height');
                 }
