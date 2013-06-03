@@ -45,7 +45,7 @@
     var defaults =
     {
         ping       : true,
-        dimensions : false
+        dimensions : 'preserve'
     },
 
     /**
