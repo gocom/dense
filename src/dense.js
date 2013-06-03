@@ -78,8 +78,6 @@
 
     /**
      * Device pixel ratio.
-     *
-     * @var {Integer}
      */
 
     devicePixelRatio,
@@ -88,8 +86,6 @@
      * An array of accepted content-types.
      *
      * Basically contains an array of raster image formats.
-     *
-     * @var {Array}
      */
 
     acceptedTypes =
@@ -105,8 +101,6 @@
      * Skipped image file extensions.
      *
      * Vectors don't need automatic pixel ratio support.
-     *
-     * @var Array
      */
 
     skipExtensions =
