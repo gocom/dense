@@ -25,7 +25,8 @@ code a:hover {
 
 pre, code {
     color: #9da8ab;
-    font: 1em Inconsolata, "Courier New", Consolas, Courier, monospace;
+    font-family: Inconsolata, "Courier New", Consolas, Courier, monospace;
+    font-size: 1em;
     background: #daeffa;
 }
 
