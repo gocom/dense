@@ -142,7 +142,7 @@
             return this;
         }
 
-        return this.not('[data-jquery-dense-original]').each(function ()
+        return this.not('.jquery-dense-active').each(function ()
         {
             var $this = $(this),
                 target,
@@ -153,7 +153,7 @@
 
             if ($this.not('img'))
             {
-                target = $('<img />');
+                target = $('<img class="jquery-dense-active" />');
                 $this.append(target);
                 $this = target;
             }
@@ -224,7 +224,7 @@
                     $this.removeAttr('width').removeAttr('height');
                 }
             }
-        });
+        }).addClass('jquery-dense-active');
     };
 
     /**
