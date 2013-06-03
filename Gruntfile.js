@@ -3,8 +3,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-bumpup');
-    grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-tagrelease');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -45,21 +45,18 @@ module.exports = function (grunt) {
             files: ['package.json']
         },
 
-        jsdoc: {
-            dist: {
-                src: ['src/*.js'],
-                options: {
-                    destination: 'docs'
-                }
-            }
-        },
-
         tagrelease: {
             file: 'package.json',
             commit:  false,
             message: 'Marks v%version%.',
             prefix:  '',
             annotate: true
+        },
+
+        shell: {
+            jsdoc: {
+                command: './node_modules/jsdoc/jsdoc src/*.js -t templates/haruki -d console -q format=json > docs/docs.json'
+            }
         }
     });
 
@@ -70,6 +67,11 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['jshint']);
     grunt.registerTask('build', ['uglify', 'copy']);
     grunt.registerTask('default', ['test', 'build']);
+
+    grunt.registerTask('jsdoc', function ()
+    {
+        grunt.task.run('shell:jsdoc');
+    });
 
     grunt.registerTask('release', function (type) {
         if (!type) {
