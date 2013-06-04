@@ -30,7 +30,7 @@ $(document).ready(function ()
         {
             var basename = data.classes[0].name + '.' + data.classes[0].classes[0].name + '.' +
                 data.classes[0].classes[0].classes[0].name, 
-                constructor = data.classes[0].classes[0].classes[0].constructor, dl, params,
+                constructor = data.classes[0].classes[0].classes[0].constructor, dl, dt, dd, params,
                 plugin = data.classes[0].classes[0].classes[0].name;
 
             docs.append(
@@ -59,10 +59,30 @@ $(document).ready(function ()
 
                     $.each(value.parameters, function (key, param)
                     {
+                        dt = $('<dt />');
+                        dd = $('<dd />');
+
                         if (param.name.indexOf('.') !== -1)
                         {
-                            dl.append($('<dt />').text(param.name.split('.').slice(1).join('.')).append(' <span class="badge">' + param.type + '</span>' + (param.optional ? ' <span class="badge">Optional</span>' : '')));
-                            dl.append($('<dd />').html(param.description).append($('<pre />').html($('<code />').text(param.default)).prepend('<span class="badge">Default</span>')));
+                            dt
+                                .text(param.name.split('.').slice(1).join('.'))
+                                .append(' ')
+                                .append($('<span class="badge" />').text(param.type));
+
+                            if (param.optional)
+                            {
+                                dt.append(' ').append($('<span class="badge" />').text('Optional'));
+                            }
+
+                            dd
+                                .html(param.description)
+                                .append(
+                                    $('<pre />')
+                                        .append($('<span class="badge" />').text('Default'))
+                                        .append($('<code />').text(param.default))
+                                );
+
+                            dl.append(dt).append(dd);
                         }
                     });
 
