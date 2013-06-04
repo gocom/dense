@@ -5,6 +5,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-tagrelease');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -57,6 +58,10 @@ module.exports = function (grunt) {
             jsdoc: {
                 command: './node_modules/jsdoc/jsdoc src/*.js -t templates/haruki -d console -q format=json > docs/docs.json'
             }
+        },
+
+        qunit: {
+            all: ['test/*.html']
         }
     });
 
@@ -64,7 +69,7 @@ module.exports = function (grunt) {
         grunt.config.set('pkg', grunt.file.readJSON('package.json'));
     });
 
-    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('test', ['jshint', 'qunit']);
     grunt.registerTask('build', ['uglify', 'copy']);
     grunt.registerTask('default', ['test', 'build']);
 
