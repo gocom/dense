@@ -156,14 +156,22 @@
                 ping = false,
                 ext;
 
-            if ($this.not('img'))
+            if (image)
             {
-                target = $('<img class="jquery-dense-active" />');
-                $this.append(target);
-                $this = target;
-            }
+                if ($this.not('img'))
+                {
+                    target = $this.siblings('img.jquery-dense-active').eq(0);
 
-            if (!image)
+                    if (!target.length)
+                    {
+                        target = $('<img class="jquery-dense-active" />');
+                        $this.append(target);
+                    }
+
+                    $this = target;
+                }
+            }
+            else
             {
                 if (!originalImage || devicePixelRatio == 1)
                 {
