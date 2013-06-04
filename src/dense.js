@@ -151,12 +151,12 @@
      * This method can also be used to load image in semi-lazy fashion.
      * If the selector targets a element that isn't an image, an
      * image is appended to that location. The image is constructed
-     * using the specified data-{ratio}x attributes like with normal
-     * images.
+     * using the specified <code>data-{ratio}x</code> attributes like
+     * with normal images.
      *
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
-     * @param    {String}  [options.dimensions=preserve] Whether to do with the 'width' and 'height'. Either "update", "remove" or "preserve"
+     * @param    {String}  [options.dimensions=preserve] What to do with the <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
      * @return   {Object}  this
      * @method   init
      * @memberof jQuery.fn.dense
@@ -340,7 +340,7 @@
     /**
      * Gets an appropriate URL for the pixel ratio from the data attribute list.
      *
-     * Selects the most appropriate 'data-{ratio}x' attribute from
+     * Selects the most appropriate <code>data-{ratio}x</code> attribute from
      * the given element's attributes.
      *
      * If the devices pixel ratio is greater than the largest specified image,
@@ -400,7 +400,7 @@
      * Initialize automatically when document is ready.
      *
      * Dense is initialized automatically if the body element
-     * has a 'dense-retina' class.
+     * has a <code>dense-retina</code> class.
      */
 
     $(document).ready(function ()
