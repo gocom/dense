@@ -14,7 +14,10 @@ module.exports = function (grunt)
                     'git clone git@github.com:gocom/dense.git',
                     'cd dense',
                     'npm install'
-                ].join('&&')
+                ].join('&&'),
+                options: {
+                    stdout: true
+                }
             }
         }
     });
