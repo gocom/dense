@@ -122,9 +122,38 @@
     /**
      * Renders a pixel-ratio-aware image.
      *
-     * The init method is the default that is called
-     * if no method argument is specified.
-     *  
+     * Dense defaults to the init method if no
+     * method is specified.
+     *
+     * The method should be used to select the images that
+     * should display retina-size images on high pixel ratio
+     * devices.
+     *
+     * The correct image variation is selected based on the
+     * device's pixel ratio. If the image element defines
+     * data-{ratio}x (e.g. data-1x, data-2x, data-3x) attributes,
+     * the most appropriate of those is selected.
+     *
+     * If no data-ratio attributes are defined, the retina image is
+     * constructed from the specified <code>src</code> attribute.
+     * The searched high pixel ratio images follow
+     * a <code>{imageName}_{ratio}x.{ext}</code> naming convention.
+     * For an image found in /path/to/images/image.jpg, the 2x retina
+     * image would be looked from /path/to/images/image_2x.jpg.
+     *
+     * When image is constructed from the src, the image existance is
+     * verified using HTTP HEAD request. The check makes sure no
+     * HTTP error code is returned, and that the received content-type
+     * is either <code>image/jpg</code>, <code>image/png</code>,
+     * <code>image/gif</code> or <code>image/bmp</code>. Vector image
+     * formats, like svg, are skipped.
+     *
+     * This method can also be used to load image in semi-lazy fashion.
+     * If the selector targets a element that isn't an image, an
+     * image is appended to that location. The image is constructed
+     * using the specified data-{ratio}x attributes like with normal
+     * images.
+     *
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
      * @param    {String}  [options.dimensions=preserve] Whether to do with the 'width' and 'height'. Either "update", "remove" or "preserve"
