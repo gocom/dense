@@ -307,7 +307,7 @@
      * @memberof jQuery.fn.dense
      * @example
      * var image = $('<div data-1x="image.jpg" data-2x="image_2x.jpg" />').dense('getImageAttribute');
-     * $('body').css('background-image', image);
+     * $('body').css('background-image', 'url(' + image + ')');
      */
 
     methods.getImageAttribute = function ()
