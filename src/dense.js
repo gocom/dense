@@ -239,10 +239,6 @@
                             {
                                 methods.updateDimensions.call($this.get(0));
                             }
-                            else if (options.dimensions === 'remove')
-                            {
-                                $this.removeAttr('width').removeAttr('height');
-                            }
                        }
                     });
             }
@@ -256,10 +252,11 @@
                 {
                     methods.updateDimensions.call($this.get(0));
                 }
-                else if (options.dimensions === 'remove')
-                {
-                    $this.removeAttr('width').removeAttr('height');
-                }
+            }
+
+            if (options.dimensions === 'remove')
+            {
+                $this.removeAttr('width').removeAttr('height');
             }
         }).addClass('jquery-dense-active');
     };
@@ -268,30 +265,34 @@
      * Sets an image's width and height attributes to its native values.
      *
      * Updates an img element's dimensions to the source image's
-     * real values. If the image doesn't exists, the width and the
-     * height are set to 0.
+     * real values.
+     *
+     * This method is asynchronous, so you can not directly return
+     * its values. Instead use load event.
      *
      * @return   {Object} this
      * @method   updateDimensions
      * @memberof jQuery.fn.dense
      * @example
      * var image = $('img').dense('updateDimensions');
-     * alert(image.attr('width'));
      */
 
     methods.updateDimensions = function ()
     {
         return this.each(function ()
         {
-            var img = {width : 0, height : 0}, $this = $(this), src = $this.attr('src');
+            var img, $this = $(this), src = $this.attr('src');
 
             if (src)
             {
                 img = new Image();
                 img.src = src;
-            }
 
-            $this.attr('width', img.width).attr('height', img.height);
+                $(img).on('load.dense', function ()
+                {
+                    $this.attr('width', img.width).attr('height', img.height);
+                });
+            }
         });
     };
 
