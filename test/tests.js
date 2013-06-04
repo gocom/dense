@@ -12,25 +12,25 @@
         var image = $('<div />').dense();
 
         equal(image.addClass('test').hasClass('test'), true, 'test class found');
-	});
+    });
 
     test("updateDimensions:chainable", function()
     {
         var image = $('<div />').dense('updateDimensions');
         equal(image.addClass('test').hasClass('test'), true, 'test class found');
-	});
+    });
 
     $(document).ready(function ()
     {
         test("updateDimensions:DOM", function()
         {
             equal($('#image').attr('width'), '5', 'image width was set to 5');
-    	});
+        });
 
         test("updateDimensions:widthNonexistantImage", function()
         {
             equal(nonExistant.attr('width'), undefined, 'image width is undefined');
-    	});
+        });
     });
 
 }(jQuery));
