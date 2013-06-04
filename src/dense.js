@@ -255,7 +255,7 @@
             img.src = $this.attr('src');
             $this.attr('width', img.width).attr('height', img.height);
         });
-    },
+    };
 
     /**
      * Gets device pixel ratio rounded up to the closest integer.
