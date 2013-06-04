@@ -283,8 +283,14 @@
     {
         return this.each(function ()
         {
-            var img = new Image(), $this = $(this);
-            img.src = $this.attr('src');
+            var img = {width : 0, height : 0}, $this = $(this), src = $this.attr('src');
+
+            if (src)
+            {
+                img = new Image();
+                img.src = src;
+            }
+
             $this.attr('width', img.width).attr('height', img.height);
         });
     };
