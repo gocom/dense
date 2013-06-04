@@ -171,11 +171,6 @@
     {
         $.extend(defaults, options);
 
-        if (devicePixelRatio === 1 && this.is('[data-1x]').length === 0)
-        {
-            return this;
-        }
-
         return this.not('.jquery-dense-active').each(function ()
         {
             var $this = $(this),
