@@ -235,11 +235,16 @@
     /**
      * Sets an image's width and height attributes to its native values.
      *
+     * Updates an img element's dimensions to the source image's
+     * real values. If the image doesn't exists, the width and the
+     * height are set to 0.
+     *
      * @return   {Object} this
      * @method   updateDimensions
      * @memberof jQuery.fn.dense
      * @example
-     * $('img').dense('updateDimensions');
+     * var image = $('img').dense('updateDimensions');
+     * alert(image.attr('width'));
      */
 
     methods.updateDimensions = function ()
