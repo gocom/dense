@@ -42,6 +42,10 @@ pre {
     box-sizing: border-box;
 }
 
+pre code {
+    background: transparent;
+}
+
 /**
  * Syntax highlight.
  */
@@ -109,6 +113,26 @@ dt {
 
 dd {
     padding: 0 2em 1em 2em;
+}
+
+dd pre {
+    margin: 0.5em -2em -1em -2em;
+    border-radius: 0;
+    padding: 0.5em 2em;
+    background: transparent;
+    border: 0;
+    border-top: 1px dotted #ddd;
+}
+
+dd pre > .badge {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    background: #ccc;
+}
+
+dd pre > code {
+    margin: 0 0 0 0.5em;
 }
 
 dl > dt:first-child {
@@ -261,4 +285,18 @@ header .slogan {
 
 .download-notes a {
     color: inherit;
+}
+
+/**
+ * Badges.
+ */
+
+.badge {
+    padding: 0 0.5em;
+    font-size: 0.6em;
+    background: #9da8ab;
+    color: #fff;
+    border-radius: 0.3em;
+    display: inline-block;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }

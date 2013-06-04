@@ -61,8 +61,8 @@ $(document).ready(function ()
                     {
                         if (param.name.indexOf('.') !== -1)
                         {
-                            dl.append($('<dt />').text(param.name.split('.').slice(1).join('.')));
-                            dl.append($('<dd />').html(param.description));
+                            dl.append($('<dt />').text(param.name.split('.').slice(1).join('.')).append(' <span class="badge">' + param.type + '</span>' + (param.optional ? ' <span class="badge">Optional</span>' : '')));
+                            dl.append($('<dd />').html(param.description).append($('<pre />').html($('<code />').text(param.default)).prepend('<span class="badge">Default</span>')));
                         }
                     });
 
