@@ -300,3 +300,41 @@ header .slogan {
     display: inline-block;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+
+/**
+ * Author.
+ */
+
+.author {
+    border-top: 1em solid #d0e8f0;
+    text-align: center;
+    margin: 5em 0 0 0;
+    padding: 2em 0 0 0;
+    font-size: 0.8em;
+    position: relative;
+}
+
+.author .face {
+    height: 135px;
+    background: url("http://uproar-n-rattle.biz/img/avatar.png") no-repeat 50% 50%;
+    position: absolute;
+    top: -4em;
+    left: 0;
+    right: 0;
+}
+
+.profile-links a {
+    text-decoration: none;
+    color: #9da8ab;
+    font-size: 1.8em;
+}
+
+.profile-links a:hover,
+.profile-links a:focus {
+    color: #000;
+}
+
+.author p {
+    margin: 0;
+}
+
