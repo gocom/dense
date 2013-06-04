@@ -12,7 +12,8 @@ body {
 }
 
 main {
-    margin: 0 10% 2em 10%;
+    padding: 0 10% 2em 10%;
+    display: block;
 }
 
 /**
