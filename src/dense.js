@@ -388,4 +388,16 @@
 
         return methods[method].call(this, options);
     };
+
+    /**
+     * Initialize automatically when document is ready.
+     *
+     * Dense is initialized automatically if the body element
+     * has a 'dense-retina' class.
+     */
+
+    $(document).ready(function ()
+    {
+        $('body.dense-retina img').dense();
+    });
 }));
