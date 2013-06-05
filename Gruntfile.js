@@ -18,6 +18,22 @@ module.exports = function (grunt)
                 options: {
                     stdout: true
                 }
+            },
+
+            build: {
+                command: [
+                    'cd tmp/dense',
+                    'grunt build',
+                    'ditto dist ../../download',
+                    'cp dist/dense.min.js ../../assets/js/dense.min.js'
+                ].join('&&'),
+                options: {
+                    stdout: true
+                }
+            },
+
+            jsdoc: {
+                command: './node_modules/jsdoc/jsdoc tmp/dense/src/*.js -t templates/haruki -d console -q format=json > content/docs.json'
             }
         }
     });
@@ -25,5 +41,11 @@ module.exports = function (grunt)
     grunt.registerTask('publish', function ()
     {
         grunt.task.run('shell:project');
+    });
+
+    grunt.registerTask('build', function ()
+    {
+        grunt.task.run('shell:build');
+        grunt.task.run('shell:jsdoc');
     });
 };

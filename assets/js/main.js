@@ -24,7 +24,7 @@ $(document).ready(function ()
     };
 
     $.ajax({
-        url : '/docs/docs.json'
+        url : '/content/docs.json'
     })
         .done(function (data, textStatus, jqXHR)
         {
@@ -50,7 +50,7 @@ $(document).ready(function ()
                         $('<pre class="language-javascript" />')
                             .html($('<code />').text(basename + '(\'' + value.name + '\'' + (params ? ', ' + params : '') + ')'))
                     )
-                    .append($('<p />').html(value.description.replace("\n\n", "</p><p>")));
+                    .append('<p>' + value.description.split("\n\n").join("</p><p>") + '</p>');
 
                 if (value.parameters.length)
                 {
