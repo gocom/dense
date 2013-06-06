@@ -57,6 +57,24 @@ module.exports = function (grunt) {
         shell: {
             jsdoc: {
                 command: 'mkdir -p dist && ./node_modules/jsdoc/jsdoc src/*.js -t templates/haruki -d console -q format=json > dist/docs.json'
+            },
+
+            publishdist: {
+                command: [
+                    'rm -rf tmp',
+                    'mkdir tmp',
+                    'cd tmp',
+                    'git clone git@github.com:gocom/dense.git',
+                    'cd dense',
+                    'git checkout gh-pages',
+                    'cp -rnv ../../dist/ download/',
+                    'git add download/*',
+                    'git commit -m "Update dist."',
+                    'git push origin gh-pages'
+                ].join('&&'),
+                options: {
+                    stdout: true
+                }
             }
         },
 
