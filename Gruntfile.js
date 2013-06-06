@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-tagrelease');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-qunit');
 
     grunt.initConfig({
@@ -53,6 +54,12 @@ module.exports = function (grunt) {
             annotate: true
         },
 
+        shell: {
+            jsdoc: {
+                command: 'mkdir -p dist && ./node_modules/jsdoc/jsdoc src/*.js -t templates/haruki -d console -q format=json > dist/docs.json'
+            }
+        },
+
         qunit: {
             all: ['test/*.html']
         }
@@ -65,6 +72,11 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['jshint', 'qunit']);
     grunt.registerTask('build', ['uglify', 'copy']);
     grunt.registerTask('default', ['test', 'build']);
+
+    grunt.registerTask('jsdoc', function ()
+    {
+        grunt.task.run('shell:jsdoc');
+    });
 
     grunt.registerTask('release', function (type) {
         if (!type) {
