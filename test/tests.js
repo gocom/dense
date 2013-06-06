@@ -4,13 +4,15 @@
 
 (function($)
 {
-    var nonExistant = $('<img src="nonexistent.jpg" />').dense('updateDimensions');
+    var image = $('<img id="image" src="resources/images/image.jpg" />');
+    $('body').append(image);
     $('#image').dense('updateDimensions');
+
+    var nonExistant = $('<img src="nonexistent.jpg" />').dense('updateDimensions');
 
     test("init:chainable", function()
     {
         var image = $('<div />').dense();
-
         equal(image.addClass('test').hasClass('test'), true, 'test class found');
     });
 
