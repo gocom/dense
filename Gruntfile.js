@@ -24,7 +24,8 @@ module.exports = function (grunt)
                 command: [
                     'cd tmp/dense',
                     'grunt build',
-                    'ditto dist ../../download',
+                    'cp -rn dist/ ../../download',
+                    'cp dist/dense.min.js ../../download/dense.min.js',
                     'cp dist/dense.min.js ../../assets/js/dense.min.js'
                 ].join('&&'),
                 options: {
