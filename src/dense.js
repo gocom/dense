@@ -150,6 +150,7 @@
      * @return   {Object}  this
      * @method   init
      * @memberof jQuery.fn.dense
+     * @fires    jQuery.fn.dense#dense-retina-loaded
      * @example
      * $('img.retina').dense({
      *  'ping'      : false,
@@ -232,6 +233,8 @@
                             {
                                 methods.updateDimensions.call($this.get(0));
                             }
+
+                            $this.trigger('dense-retina-loaded');
                        }
                     });
             }
@@ -245,6 +248,8 @@
                 {
                     methods.updateDimensions.call($this.get(0));
                 }
+
+                $this.trigger('dense-retina-loaded');
             }
 
             if (options.dimensions === 'remove')
@@ -400,4 +405,15 @@
     {
         $('body.dense-retina img').dense();
     });
+
+    /**
+     * Is invoked when an retina image has finished loading.
+     *
+     * This event does not take into account dimension updates
+     * which are run asynchronously after the retina image has
+     * been loaded.
+     *
+     * @event    jQuery.fn.dense#dense-retina-loaded
+     * @type     {Object}
+     */
 }));
