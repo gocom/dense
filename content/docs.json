@@ -71,7 +71,7 @@
                                     "name": "init",
                                     "access": "",
                                     "virtual": false,
-                                    "description": "Renders a pixel-ratio-aware image.\n\nDense defaults to the init method if no\nmethod is specified.\n\nThe method should be used to select the images that\nshould display retina-size images on high pixel ratio\ndevices.\n\nThe correct image variation is selected based on the\ndevice's pixel ratio. If the image element defines\ndata-{ratio}x (e.g. data-1x, data-2x, data-3x) attributes,\nthe most appropriate of those is selected.\n\nIf no data-ratio attributes are defined, the retina image is\nconstructed from the specified <code>src</code> attribute.\nThe searched high pixel ratio images follow\na <code>{imageName}_{ratio}x.{ext}</code> naming convention.\nFor an image found in /path/to/images/image.jpg, the 2x retina\nimage would be looked from /path/to/images/image_2x.jpg.\n\nWhen image is constructed from the src, the image existance is\nverified using HTTP HEAD request. The check makes sure no\nHTTP error code is returned, and that the received content-type\nis either <code>image/jpg</code>, <code>image/png</code>,\n<code>image/gif</code> or <code>image/bmp</code>. Vector image\nformats, like svg, are skipped.\n\nThis method can also be used to load image in semi-lazy fashion.\nIf the selector targets a element that isn't an image, an\nimage is appended to that location. The image is constructed\nusing the specified <code>data-{ratio}x</code> attributes like\nwith normal images.",
+                                    "description": "Renders a pixel-ratio-aware image.\n\nDense defaults to the init method if no\nmethod is specified.\n\nThe method should be used to select the images that\nshould display retina-size images on high pixel ratio\ndevices.\n\nThe correct image variation is selected based on the\ndevice's pixel ratio. If the image element defines\ndata-{ratio}x (e.g. data-1x, data-2x, data-3x) attributes,\nthe most appropriate of those is selected.\n\nIf no data-ratio attributes are defined, the retina image is\nconstructed from the specified <code>src</code> attribute.\nThe searched high pixel ratio images follow\na <code>{imageName}_{ratio}x.{ext}</code> naming convention.\nFor an image found in /path/to/images/image.jpg, the 2x retina\nimage would be looked from /path/to/images/image_2x.jpg.\n\nWhen image is constructed from the src, the image existance is\nverified using HTTP HEAD request. The check makes sure no\nHTTP error code is returned, and that the received content-type\nis either <code>image/jpg</code>, <code>image/png</code>,\n<code>image/gif</code> or <code>image/bmp</code>. Vector image\nformats, like svg, are skipped.\n\nThis method can also be used to load image in semi-lazy fashion,\nand avoid larger extra HTTP requests due to retina replacements.\nThe normal image can be fetched from data-1x attribute instead of\nthe src. This allows using placeholder value or image in the src.",
                                     "parameters": [
                                         {
                                             "name": "options",
@@ -110,7 +110,7 @@
                                     "name": "updateDimensions",
                                     "access": "",
                                     "virtual": false,
-                                    "description": "Sets an image's width and height attributes to its native values.\n\nUpdates an img element's dimensions to the source image's\nreal values.\n\nThis method is asynchronous, so you can not directly return\nits values. Instead use load event.",
+                                    "description": "Sets an image's width and height attributes to its native values.\n\nUpdates an img element's dimensions to the source image's\nreal values. This method is asynchronous, so you can not directly\nreturn its values.",
                                     "parameters": [
                                     ],
                                     "examples": [
@@ -153,6 +153,28 @@
                                         ],
                                         "description": "The attribute value"
                                     }
+                                }
+                            ],
+                            "events": [
+                                {
+                                    "name": "dense-retina-loaded",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "This event is invoked when an retina image has finished loading.",
+                                    "parameters": [
+                                    ],
+                                    "examples": [
+                                    ]
+                                },
+                                {
+                                    "name": "dense-dimensions-updated",
+                                    "access": "",
+                                    "virtual": false,
+                                    "description": "This event is invoked when an image's dimensions are\nhave been updated by the <code>updateDimensions</code>\nmethod.",
+                                    "parameters": [
+                                    ],
+                                    "examples": [
+                                    ]
                                 }
                             ]
                         }
