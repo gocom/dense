@@ -165,7 +165,7 @@
             dimensions : 'preserve'
         }, options);
 
-        return this.not('.dense-active').each(function ()
+        this.not('.dense').addClass('dense dense-loading').each(function ()
         {
             var $this = $(this),
                 target,
@@ -178,11 +178,11 @@
             {
                 if ($this.not('img'))
                 {
-                    target = $this.siblings('img.dense-active').eq(0);
+                    target = $this.siblings('img.dense').eq(0);
 
                     if (!target.length)
                     {
-                        target = $('<img class="dense-active" />');
+                        target = $('<img class="dense dense-loading" />');
                         $this.append(target);
                     }
 
@@ -234,7 +234,7 @@
                                 methods.updateDimensions.call($this.get(0));
                             }
 
-                            $this.trigger('dense-retina-loaded');
+                            $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
                        }
                     });
             }
@@ -249,14 +249,16 @@
                     methods.updateDimensions.call($this.get(0));
                 }
 
-                $this.trigger('dense-retina-loaded');
+                $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
             }
 
             if (options.dimensions === 'remove')
             {
                 $this.removeAttr('width').removeAttr('height');
             }
-        }).addClass('dense-active');
+        });
+
+        return this;
     };
 
     /**
