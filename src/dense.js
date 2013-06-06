@@ -358,7 +358,7 @@
 
         for (var i = 1; i <= devicePixelRatio; i++)
         {
-            url = $(this).attr('data-' + i + 'x');
+            url = $this.attr('data-' + i + 'x');
 
             if (url)
             {
