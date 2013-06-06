@@ -1,0 +1,37 @@
+{
+    "name": "dense",
+    "version": "0.0.1",
+    "title": "Dense",
+    "author": {
+        "name": "Jukka Svahn",
+        "url": "http://uproar-n-rattle.biz"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/gocom/dense/master/LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.7.0"
+    },
+    "description": "Serve device pixel ratio aware, retina-ready images with ease",
+    "keywords": [
+        "retina",
+        "responsive",
+        "image",
+        "HDI",
+        "PPI",
+        "mobile",
+        "resolution",
+        "density",
+        "device",
+        "pixel",
+        "ratio",
+    ],
+    "homepage": "http://dense.rah.pw",
+    "docs": "http://dense.rah.pw",
+    "demo": "http://dense.rah.pw",
+    "bugs": "https://github.com/gocom/dense/issues",
+    "download": "http://dense.rah.pw/download/dense.min.js"
+}
