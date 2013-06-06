@@ -165,7 +165,7 @@
             dimensions : 'preserve'
         }, options);
 
-        this.not('.dense').addClass('dense dense-loading').each(function ()
+        this.not('.dense').filter('img').addClass('dense dense-loading').end().each(function ()
         {
             var $this = $(this),
                 target,
@@ -178,14 +178,13 @@
             {
                 if ($this.not('img'))
                 {
-                    target = $this.siblings('img.dense').eq(0);
-
-                    if (!target.length)
+                    if ($this.siblings('img.dense').length)
                     {
-                        target = $('<img class="dense dense-loading" />');
-                        $this.append(target);
+                        return;
                     }
 
+                    target = $('<img class="dense dense-loading" />');
+                    $this.append(target);
                     $this = target;
                 }
             }
