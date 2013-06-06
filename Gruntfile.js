@@ -61,16 +61,13 @@ module.exports = function (grunt) {
 
             publishdist: {
                 command: [
-                    'rm -rf tmp',
-                    'mkdir tmp',
-                    'cd tmp',
-                    'git clone git@github.com:gocom/dense.git',
-                    'cd dense',
+                    'git stash',
                     'git checkout gh-pages',
-                    'cp -rnv ../../dist/ download/',
+                    'cp -rnv dist/ download/',
                     'git add download/*',
                     'git commit -m "Update dist."',
-                    'git push origin gh-pages'
+                    'git checkout master',
+                    'git stash pop'
                 ].join('&&'),
                 options: {
                     stdout: true
