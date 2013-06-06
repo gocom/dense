@@ -138,11 +138,10 @@
      * <code>image/gif</code> or <code>image/bmp</code>. Vector image
      * formats, like svg, are skipped.
      *
-     * This method can also be used to load image in semi-lazy fashion.
-     * If the selector targets a element that isn't an image, an
-     * image is appended to that location. The image is constructed
-     * using the specified <code>data-{ratio}x</code> attributes like
-     * with normal images.
+     * This method can also be used to load image in semi-lazy fashion,
+     * and avoid larger extra HTTP requests due to retina replacements.
+     * The normal image can be fetched from data-1x attribute instead of
+     * the src. This allows using placeholder value or image in the src.
      *
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
@@ -165,30 +164,15 @@
             dimensions : 'preserve'
         }, options);
 
-        this.not('.dense').filter('img').addClass('dense dense-loading').end().each(function ()
+        this.filter('img').not('.dense').addClass('dense dense-loading').each(function ()
         {
             var $this = $(this),
-                target,
                 image = methods.getImageAttribute.call(this),
                 originalImage = $this.attr('src'),
                 ping = false,
                 ext;
 
-            if (image)
-            {
-                if ($this.not('img'))
-                {
-                    if ($this.siblings('img.dense').length)
-                    {
-                        return;
-                    }
-
-                    target = $('<img class="dense dense-loading" />');
-                    $this.append(target);
-                    $this = target;
-                }
-            }
-            else
+            if (!image)
             {
                 if (!originalImage || devicePixelRatio == 1)
                 {
