@@ -170,7 +170,8 @@
                 image = methods.getImageAttribute.call(this),
                 originalImage = $this.attr('src'),
                 ping = false,
-                ext;
+                ext,
+                updateImage;
 
             if (!image)
             {
@@ -194,6 +195,30 @@
                 ping = options.ping && $.inArray(image, pathStack) === -1 && (regexProtocol.test(image) === false || image.indexOf('://' + document.domain) !== -1);
             }
 
+            updateImage = function ()
+            {
+                var readyImage = function ()
+                {
+                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                };
+
+                $this.attr('src', image).data('dense-original', originalImage);
+
+                if (options.dimensions === 'update')
+                {
+                    $this.dense('updateDimensions').one('dense-dimensions-updated', readyImage);
+                }
+                else
+                {
+                    if (options.dimensions === 'remove')
+                    {
+                        $this.removeAttr('width').removeAttr('height');
+                    }
+
+                    readyImage();
+                }
+            };
+
             if (ping)
             {
                 $.ajax({
@@ -202,52 +227,18 @@
                 })
                     .done(function (data, textStatus, jqXHR)
                     {
-                       var type = jqXHR.getResponseHeader('Content-type').split(';').shift();
+                        var type = jqXHR.getResponseHeader('Content-type');
 
-                       if (jqXHR.status === 200 && (type === null || $.inArray(type, acceptedTypes) !== -1))
-                       {
-                           pathStack.push(image);
-
-                           $this
-                               .attr('src', image)
-                               .data('dense-original', originalImage);
-
-                            if (options.dimensions === 'update')
-                            {
-                                $this.dense('updateDimensions').one('dense-dimensions-updated', function()
-                                {
-                                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
-                                });
-                            }
-                            else
-                            {
-                                $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
-                            }
+                        if (jqXHR.status === 200 && (type === null || $.inArray(type.split(';').shift(), acceptedTypes) !== -1))
+                        {
+                            pathStack.push(image);
+                            updateImage();
                         }
                     });
             }
             else
             {
-                $this
-                    .attr('src', image)
-                    .data('dense-original', originalImage);
-
-                if (options.dimensions === 'update')
-                {
-                    $this.dense('updateDimensions').one('dense-dimensions-updated', function()
-                    {
-                        $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
-                    });
-                }
-                else
-                {
-                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
-                }
-            }
-
-            if (options.dimensions === 'remove')
-            {
-                $this.removeAttr('width').removeAttr('height');
+                updateImage();
             }
         });
 
