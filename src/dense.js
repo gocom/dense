@@ -50,20 +50,10 @@
 }(function ($)
 {
     /**
-     * Default options.
-     */
-
-    var defaults =
-    {
-        ping       : true,
-        dimensions : 'preserve'
-    },
-
-    /**
      * An array of checked image URLs.
      */
 
-    pathStack = [],
+    var pathStack = [],
 
     /**
      * Methods.
@@ -169,7 +159,10 @@
 
     methods.init = function (options)
     {
-        $.extend(defaults, options);
+        options = $.extend({
+            ping       : true,
+            dimensions : 'preserve'
+        }, options);
 
         return this.not('.jquery-dense-active').each(function ()
         {
