@@ -204,15 +204,15 @@
 
                 $this.attr('src', image).data('dense-original', originalImage);
 
-                if (options.dimensions === 'update')
+                if (options.dimensions == 'update')
                 {
                     $this.dense('updateDimensions').one('dense-dimensions-updated', readyImage);
                 }
                 else
                 {
-                    if (options.dimensions === 'remove')
+                    if (options.dimensions == 'remove')
                     {
-                        $this.removeAttr('width').removeAttr('height');
+                        $this.removeAttr('width height');
                     }
 
                     readyImage();
