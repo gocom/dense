@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         },
 
         bumpup: {
-            files: ['package.json']
+            files: ['package.json', 'bower.json']
         },
 
         tagrelease: {
