@@ -78,6 +78,8 @@ module.exports = function (grunt) {
         grunt.task.run('shell:jsdoc');
     });
 
+    grunt.registerTask('travis', 'lint qunit build');
+
     grunt.registerTask('release', function (type) {
         if (!type) {
             type = 'patch';

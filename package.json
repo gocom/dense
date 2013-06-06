@@ -42,5 +42,8 @@
         "image",
         "responsive",
         "plugin"
-    ]
+    ],
+    "scripts": {
+        "test": "grunt travis --verbose"
+    }
 }
