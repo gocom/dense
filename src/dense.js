@@ -264,14 +264,13 @@
      * Sets an image's width and height attributes to its native values.
      *
      * Updates an img element's dimensions to the source image's
-     * real values.
-     *
-     * This method is asynchronous, so you can not directly return
-     * its values. Instead use load event.
+     * real values. This method is asynchronous, so you can not directly
+     * return its values.
      *
      * @return   {Object} this
      * @method   updateDimensions
      * @memberof jQuery.fn.dense
+     * @fires    jQuery.fn.dense#dense-dimensions-updated
      * @example
      * var image = $('img').dense('updateDimensions');
      */
@@ -290,6 +289,7 @@
                 $(img).on('load.dense', function ()
                 {
                     $this.attr('width', img.width).attr('height', img.height);
+                    $this.trigger('dense-dimensions-updated');
                 });
             }
         });
@@ -408,13 +408,22 @@
     });
 
     /**
-     * Is invoked when an retina image has finished loading.
+     * This event is invoked when an retina image has finished loading.
      *
      * This event does not take into account dimension updates
      * which are run asynchronously after the retina image has
      * been loaded.
      *
      * @event    jQuery.fn.dense#dense-retina-loaded
+     * @type     {Object}
+     */
+
+    /**
+     * This event is invoked when an image's dimensions are
+     * have been updated by the <code>updateDimensions</code>
+     * method.
+     *
+     * @event    jQuery.fn.dense#dense-dimensions-updated
      * @type     {Object}
      */
 }));
