@@ -110,23 +110,22 @@
     ];
 
     /**
-     * Renders a pixel-ratio-aware image.
+     * Init is the default method responsible for rendering 
+     * a pixel-ratio-aware images.
      *
-     * Dense defaults to the init method if no
+     * This method is used to select the images that
+     * should display retina-size images on high pixel ratio
+     * devices. Dense defaults to the init method if no
      * method is specified.
      *
-     * The method should be used to select the images that
-     * should display retina-size images on high pixel ratio
-     * devices.
-     *
-     * The correct image variation is selected based on the
-     * device's pixel ratio. If the image element defines
-     * data-{ratio}x (e.g. data-1x, data-2x, data-3x) attributes,
+     * When attached to an image, the correct image variation is
+     * selected based on the device's pixel ratio. If the image element
+     * defines <code>data-{ratio}x</code> attributes (e.g. data-1x, data-2x, data-3x),
      * the most appropriate of those is selected.
      *
      * If no data-ratio attributes are defined, the retina image is
-     * constructed from the specified <code>src</code> attribute.
-     * The searched high pixel ratio images follow
+     * constructed from the <code>src</code> attribute.
+     * The searched high pixel ratio images follows
      * a <code>{imageName}_{ratio}x.{ext}</code> naming convention.
      * For an image found in /path/to/images/image.jpg, the 2x retina
      * image would be looked from /path/to/images/image_2x.jpg.
@@ -140,8 +139,9 @@
      *
      * This method can also be used to load image in semi-lazy fashion,
      * and avoid larger extra HTTP requests due to retina replacements.
-     * The normal image can be fetched from data-1x attribute instead of
-     * the src. This allows using placeholder value or image in the src.
+     * The data-1x attribute can be used to supstitute the src, making
+     * sure the browser doesn't try to download the normal image variation
+     * before the JavaScript driven behaviour kicks in.
      *
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
@@ -242,7 +242,8 @@
      *
      * Updates an img element's dimensions to the source image's
      * real values. This method is asynchronous, so you can not directly
-     * return its values.
+     * return its values. Instead, use the 'dense-dimensions-updated'
+     * event to detect when the action is done.
      *
      * @return   {Object} this
      * @method   updateDimensions
@@ -317,10 +318,8 @@
      * Gets an appropriate URL for the pixel ratio from the data attribute list.
      *
      * Selects the most appropriate <code>data-{ratio}x</code> attribute from
-     * the given element's attributes.
-     *
-     * If the devices pixel ratio is greater than the largest specified image,
-     * the largest one of the available is used.
+     * the given element's attributes. If the devices pixel ratio is greater
+     * than the largest specified image, the largest one of the available is used.
      *
      * @return   {String|Boolean} The attribute value
      * @method   getImageAttribute
