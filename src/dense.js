@@ -1,7 +1,7 @@
 /**
  * Dense - Device pixel ratio aware images
  *
- * @link    https://github.com/gocom/dense
+ * @link    http://dense.rah.pw
  * @license MIT
  */
 
