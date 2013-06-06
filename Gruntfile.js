@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                     'cp -rnv dist/ download/',
                     'git add download/*',
                     'git commit -m "Update dist."',
-                    'git checkout master',
+                    'git checkout -',
                     'git stash pop'
                 ].join('&&'),
                 options: {
