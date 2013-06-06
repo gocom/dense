@@ -230,11 +230,16 @@
 
                             if (options.dimensions === 'update')
                             {
-                                methods.updateDimensions.call($this.get(0));
+                                $this.dense('updateDimensions').one('dense-dimensions-updated', function()
+                                {
+                                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                                });
                             }
-
-                            $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
-                       }
+                            else
+                            {
+                                $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                            }
+                        }
                     });
             }
             else
@@ -245,10 +250,15 @@
 
                 if (options.dimensions === 'update')
                 {
-                    methods.updateDimensions.call($this.get(0));
+                    $this.dense('updateDimensions').one('dense-dimensions-updated', function()
+                    {
+                        $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                    });
                 }
-
-                $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                else
+                {
+                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                }
             }
 
             if (options.dimensions === 'remove')
@@ -409,10 +419,6 @@
 
     /**
      * This event is invoked when an retina image has finished loading.
-     *
-     * This event does not take into account dimension updates
-     * which are run asynchronously after the retina image has
-     * been loaded.
      *
      * @event    jQuery.fn.dense#dense-retina-loaded
      * @type     {Object}
