@@ -165,7 +165,7 @@
             dimensions : 'preserve'
         }, options);
 
-        return this.not('.jquery-dense-active').each(function ()
+        return this.not('.dense-active').each(function ()
         {
             var $this = $(this),
                 target,
@@ -178,11 +178,11 @@
             {
                 if ($this.not('img'))
                 {
-                    target = $this.siblings('img.jquery-dense-active').eq(0);
+                    target = $this.siblings('img.dense-active').eq(0);
 
                     if (!target.length)
                     {
-                        target = $('<img class="jquery-dense-active" />');
+                        target = $('<img class="dense-active" />');
                         $this.append(target);
                     }
 
@@ -227,7 +227,7 @@
 
                            $this
                                .attr('src', image)
-                               .data('jquery-dense-original', originalImage);
+                               .data('dense-original', originalImage);
 
                             if (options.dimensions === 'update')
                             {
@@ -242,7 +242,7 @@
             {
                 $this
                     .attr('src', image)
-                    .data('jquery-dense-original', originalImage);
+                    .data('dense-original', originalImage);
 
                 if (options.dimensions === 'update')
                 {
@@ -256,7 +256,7 @@
             {
                 $this.removeAttr('width').removeAttr('height');
             }
-        }).addClass('jquery-dense-active');
+        }).addClass('dense-active');
     };
 
     /**
