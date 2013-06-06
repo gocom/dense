@@ -170,19 +170,11 @@
                 image = methods.getImageAttribute.call(this),
                 originalImage = $this.attr('src'),
                 ping = false,
-                ext,
                 updateImage;
 
             if (!image)
             {
-                if (!originalImage || devicePixelRatio == 1)
-                {
-                    return;
-                }
-
-                ext = image.split('.').pop().split(/[\?\#]/).shift();
-
-                if ($.inArray(ext, skipExtensions))
+                if (!originalImage || devicePixelRatio == 1 || $.inArray(image.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
                 {
                     return;
                 }
