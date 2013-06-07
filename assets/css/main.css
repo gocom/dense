@@ -252,6 +252,15 @@ header .slogan {
     color: #9da8ab;
 }
 
+header .social {
+    margin: 0;
+}
+
+header .social a {
+    padding: 0.1em 0.6em;
+    font-size: 0.5em;
+}
+
 /**
  * Navigation.
  */
@@ -300,6 +309,13 @@ nav a {
 .button:focus {
     color: #fff;
     background: #000;
+}
+
+.light {
+    background: #fff;
+    color: inherit;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 /**
