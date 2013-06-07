@@ -26,7 +26,7 @@
 
     <main>
 
-        <p><b>Dense</b> is a <a href="http://jquery.com">jQuery</a> plugin that offers an easy way to serve device pixel ratio aware images, bringing in retina support to your website. Clear the blurry, images be crisp. </p>
+        <p><b>Dense</b> is a <a href="http://jquery.com">jQuery</a> plugin that offers an easy way to serve device pixel ratio aware images, bringing in retina support to your website. Clear the blurry, images be crisp.</p>
 
         <h2>Demo</h2>
 
@@ -34,11 +34,13 @@
 
         <p>Your device pixel ratio was seen as and rounded up to <span class="ratio"></span>. As such, you are seeing the <span class="ratio"></span>x variation of the above image. The image tag doesn't define <code>data-<span class="ratio"></span>x</code> attribute, so we are defaulting to <code>src</code>.</p>
 
-        <p>When the device's pixel ratio higher than 2 and a <code>data-{ratio}</code> attribute isn't specified, the image URL is constructed using the <code>src</code> attribute value by adding a <code>_{ratio}x</code> suffix before the file extension. For instance <code>/images/hello-world.jpg</code> 2x retina image would be looked from <code>/images/hello-world_2x.jpg</code>.</p>
+        <p>If the image doesn't specify <strong>any</strong> data-<em>n</em>x attributes, retina image paths are constructed by appending a <code>_{ratio}x</code> suffix to the <code>src</code>. <code>/images/hello-world.jpg</code> 2x retina image would be looked from <code>/images/hello-world_2x.jpg</code>.</p>
+
+        <p><b>Want complete barebone example to fiddle with?</b> We got this <a href="/examples/basic.html">basic demo</a>. Complete, working code, collection of the most simplest usage patterns.</p>
 
         <h2>Usage</h2>
 
-        <p>The above responsive, retina-ready image is implemented by simply including the jQuery plugin on the page and calling its <code>$.fn.dense()</code> initializer method.</p>
+        <p>The above responsive, retina-ready image is implemented by simply including the jQuery plugin on the page and calling its <code>$.fn.dense()</code> initializer method. The initializer method is set to target those <code>img</code> elements that should serve retina-ready images when needed.</p>
 
         <pre class="language-html"><code>&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;dense.min.js&quot;&gt;&lt;/script&gt;
@@ -46,7 +48,7 @@
     $('img').dense();
 &lt;/script&gt;</code></pre>
 
-        <p>You may also initialize Dense with its default configuration by adding a <code>dense-retina</code> class to the <code>body</code> element. This allows you to run the plugin without manually initializing it, or having to write tiny bit of JavaScript.</p>
+        <p>You may also initialize Dense with its default configuration by adding a <code>dense-retina</code> class to the <code>body</code> element. Dense will target all images present on the page at the document ready event, using the default option values. This allows you to run the plugin without manually initializing it, or having to write tiny bit of JavaScript.</p>
 
         <div class="author">
             <div class="face"></div>
