@@ -31,10 +31,10 @@ pre, code {
     color: #9da8ab;
     font-family: Inconsolata, "Courier New", Consolas, Courier, monospace;
     font-size: 1em;
-    background: #daeffa;
 }
 
 pre {
+    background: #daeffa;
     padding: 1em;
     border: 1px solid #d0e8f0;
     border-radius: 0.25em;
@@ -155,12 +155,32 @@ dl > dt:first-child {
  */
 
 a {
-    color: #37BDDB;
+    color: #37bddb;
 }
 
 a:hover {
-    color: #1D97B3;
+    color: #1d97b3;
 }
+
+a:focus {
+    color: #000;
+}
+
+/**
+ * Inline.
+ */
+
+strong, b {
+    font-weight: bold;
+}
+
+small {
+    font-size: 0.8em;
+}
+
+/**
+ * Typo.
+ */
 
 p, h1, h2, h3, h4, h5, h6, pre, blockquote, table, dl {
     margin: 2em 0 0 0;
@@ -384,6 +404,7 @@ nav a {
 }
 
 .jquery-thar:hover .jquery-thar-anchor,
-.jquery-thar-anchor:hover {
+.jquery-thar-anchor:hover,
+.jquery-thar-anchor:focus {
     opacity: 1;
 }
