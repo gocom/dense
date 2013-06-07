@@ -233,6 +233,34 @@ header .slogan {
 }
 
 /**
+ * Navigation.
+ */
+
+nav {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5em;
+}
+
+
+/**
  * Buttons.
  */
 
@@ -339,3 +367,23 @@ header .slogan {
     margin: 0;
 }
 
+/**
+ * jQuery.thar.
+ */
+
+.jquery-thar-anchor {
+    position: absolute;
+    margin: 0 0 0 -1.2em;
+    width: 1em;
+    padding: 0 0.2em 0 0;
+    text-align: right;
+    transition: opacity 0.5s;
+    opacity: 0;
+    text-decoration: none;
+    color: #ddd;
+}
+
+.jquery-thar:hover .jquery-thar-anchor,
+.jquery-thar-anchor:hover {
+    opacity: 1;
+}

@@ -1,6 +1,10 @@
 $(document).ready(function ()
 {
     $('.ratio').text($(window).dense('devicePixelRatio'));
+    $('h2').thar();
+    $('h2').thar('getContentList', {
+        target : $('nav')
+    });
 
     var docs = $('#docs');
 
@@ -101,6 +105,7 @@ $(document).ready(function ()
             });
 
             Rainbow.color();
+            docs.find('h3').thar();
         });
 });
 
