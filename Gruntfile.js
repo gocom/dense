@@ -1,11 +1,11 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-tagrelease');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -22,12 +22,30 @@ module.exports = function (grunt) {
             }
         },
 
-        copy: {
+        compress: {
             main: {
+                options: {
+                    archive: 'dist/<%= pkg.name %>.v<%= pkg.version %>.zip'
+                },
                 files: [
                     {
-                        src : ['dist/<%= pkg.name %>.min.js'],
-                        dest: 'dist/<%= pkg.name %>.v<%= pkg.version %>.min.js'
+                        src: ['LICENSE', 'README.md'],
+                        dest: '<%= pkg.name %>/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'dist/',
+                        src: ['*.js'],
+                        dest: '<%= pkg.name %>/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/',
+                        src: ['*.js'],
+                        dest: '<%= pkg.name %>/',
+                        filter: 'isFile'
                     }
                 ]
             }
@@ -59,14 +77,40 @@ module.exports = function (grunt) {
                 command: 'mkdir -p dist && ./node_modules/jsdoc/jsdoc src/*.js -t templates/haruki -d console -q format=json > dist/docs.json'
             },
 
-            publishdist: {
+            // Publishes the release on GitHub pages.
+
+            publish: {
                 command: [
+                    'echo "Cleaning working..."',
+                    'rm -Rf content',
+                    'rm -Rf download',
+                    'echo "Stashing current changes..."',
                     'git stash',
+                    'echo "Checking out gh-pages..."',
                     'git checkout gh-pages',
-                    'cp -rnv dist/ download/',
-                    'git add download/*',
+                    'echo "Creating base directories..."',
+                    'mkdir -p dist',
+                    'mkdir -p content',
+                    'mkdir -p download',
+                    'echo "Updating documentation..."',
+                    'touch dist/docs.json',
+                    'cp -f dist/docs.json content/docs.json',
+                    'echo "Updating package.json..."',
+                    'cp -f package.json content/package.json',
+                    'echo "Updating downloads..."',
+                    'cp -rnv dist/*.zip download/',
+                    'echo "Staging..."',
+                    'git add download/*.zip',
+                    'git add content/*.json',
+                    'echo "Commiting changes..."',
                     'git commit -m "Update dist."',
+                    'echo "Restoring previous branch..."',
                     'git checkout -',
+                    'echo "Removing trash..."',
+                    'rm -Rf dist',
+                    'rm -Rf content',
+                    'rm -Rf download',
+                    'echo "Restoring working tree..."',
                     'git stash pop'
                 ].join('&&'),
                 options: {
@@ -85,7 +129,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('build', ['uglify', 'copy']);
+    grunt.registerTask('build', ['uglify']);
     grunt.registerTask('default', ['test', 'build']);
 
     grunt.registerTask('jsdoc', function ()
@@ -95,7 +139,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('travis', ['jshint', 'qunit', 'build']);
 
-    grunt.registerTask('release', function (type) {
+    grunt.registerTask('release', function (type)
+    {
         if (!type) {
             type = 'patch';
         }
@@ -105,5 +150,12 @@ module.exports = function (grunt) {
         grunt.task.run('updatePackage');
         grunt.task.run('build');
         grunt.task.run('tagrelease');
+    });
+
+    grunt.registerTask('publish', function (type)
+    {
+        grunt.task.run('jsdoc');
+        grunt.task.run('compress');
+        grunt.task.run('shell:publish');
     });
 };
