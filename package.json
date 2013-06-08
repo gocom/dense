@@ -1,7 +1,0 @@
-{
-    "dependencies": {
-        "grunt": "0.4.1",
-        "grunt-shell": "0.2.2",
-        "jsdoc3": "git+https://github.com/jsdoc3/jsdoc.git#cfff8dd035ad376892139192c03718ce2dcc20f0"
-    }
-}
