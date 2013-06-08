@@ -109,7 +109,7 @@ module.exports = function (grunt) {
                     'git add download/*.zip',
                     'git add content/*.json',
                     'echo "Commiting changes..."',
-                    'git commit -m "Update dist."',
+                    'git diff-index --quiet HEAD || git commit -m "Update dist."',
                     'echo "Restoring previous branch..."',
                     'git checkout -',
                     'echo "Removing trash..."',
