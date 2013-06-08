@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 
             publish: {
                 command: [
-                    'echo "Storing required resource in dist..."',
+                    'echo "Storing required resources in dist..."',
                     'mkdir -pv dist',
                     'cp -f package.json dist/package.json',
                     'echo "Cleaning working tree..."',
