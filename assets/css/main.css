@@ -359,12 +359,16 @@ nav a {
 #download-widget h1 {
     font-size: 2em;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 0.5em;
+    margin: 0 0 0.5em 0;
 }
 
 #download-widget p {
     margin: 0;
     font-size: 0.8em;
+}
+
+#download-widget .back {
+    margin: 2em 0 1em 0;
 }
 
 /**
