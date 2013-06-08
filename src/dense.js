@@ -204,7 +204,7 @@
                     {
                         var type = jqXHR.getResponseHeader('Content-type');
 
-                        if (jqXHR.status === 200 && (!type || type.indexOf('image/') === 0)
+                        if (!type || type.indexOf('image/') === 0)
                         {
                             pathStack.push(image);
                             updateImage();
