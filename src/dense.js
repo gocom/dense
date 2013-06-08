@@ -84,19 +84,6 @@
     devicePixelRatio,
 
     /**
-     * An array of accepted content-types.
-     *
-     * Basically contains an array of raster image formats.
-     */
-
-    acceptedTypes =
-    [
-        'image/jpeg',
-        'image/png',
-        'image/gif'
-    ],
-
-    /**
      * Skipped image file extensions.
      *
      * Vectors don't need automatic pixel ratio support.
@@ -131,8 +118,7 @@
      * When image is constructed from the src, the image existance is
      * verified using HTTP HEAD request. The check makes sure no
      * HTTP error code is returned, and that the received content-type
-     * is either <code>image/jpeg</code>, <code>image/png</code> or
-     * <code>image/gif</code>. Vector image formats, like svg, are skipped.
+     * is of an image. Vector image formats, like svg, are skipped.
      *
      * This method can also be used to load image in semi-lazy fashion,
      * and avoid larger extra HTTP requests due to retina replacements.
@@ -218,7 +204,7 @@
                     {
                         var type = jqXHR.getResponseHeader('Content-type');
 
-                        if (jqXHR.status === 200 && (type === null || $.inArray(type.split(';').shift(), acceptedTypes) !== -1))
+                        if (jqXHR.status === 200 && (!type || type.indexOf('image/') === 0)
                         {
                             pathStack.push(image);
                             updateImage();
