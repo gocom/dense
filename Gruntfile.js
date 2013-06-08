@@ -152,6 +152,7 @@ module.exports = function (grunt) {
         grunt.task.run('updatePackage');
         grunt.task.run('build');
         grunt.task.run('tagrelease');
+        grunt.registerTask('publish');
     });
 
     grunt.registerTask('publish', function ()
