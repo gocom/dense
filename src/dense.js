@@ -91,11 +91,9 @@
 
     acceptedTypes =
     [
-        'image/jpg',
         'image/jpeg',
         'image/png',
-        'image/gif',
-        'image/bmp'
+        'image/gif'
     ],
 
     /**
@@ -133,9 +131,8 @@
      * When image is constructed from the src, the image existance is
      * verified using HTTP HEAD request. The check makes sure no
      * HTTP error code is returned, and that the received content-type
-     * is either <code>image/jpg</code>, <code>image/png</code>,
-     * <code>image/gif</code> or <code>image/bmp</code>. Vector image
-     * formats, like svg, are skipped.
+     * is either <code>image/jpeg</code>, <code>image/png</code> or
+     * <code>image/gif</code>. Vector image formats, like svg, are skipped.
      *
      * This method can also be used to load image in semi-lazy fashion,
      * and avoid larger extra HTTP requests due to retina replacements.
