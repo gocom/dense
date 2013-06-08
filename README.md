@@ -22,7 +22,8 @@ Using Dense is simple. Include the plugin and initialize its method:
 <script src="dense.js"></script>
 <script>
     $('img').dense();
-</script>```
+</script>
+```
 
 For more instruction and options see the [documentation](http://dense.rah.pw).
 
