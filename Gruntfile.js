@@ -81,7 +81,10 @@ module.exports = function (grunt) {
 
             publish: {
                 command: [
-                    'echo "Cleaning working..."',
+                    'echo "Storing required resource in dist..."',
+                    'mkdir -pv dist',
+                    'cp -fv package.json dist/package.json',
+                    'echo "Cleaning working tree..."',
                     'rm -Rf content',
                     'rm -Rf download',
                     'echo "Stashing current changes..."',
@@ -89,14 +92,13 @@ module.exports = function (grunt) {
                     'echo "Checking out gh-pages..."',
                     'git checkout gh-pages',
                     'echo "Creating base directories..."',
-                    'mkdir -pv dist',
                     'mkdir -pv content',
                     'mkdir -pv download',
                     'echo "Updating documentation..."',
                     'touch dist/docs.json',
                     'cp -fv dist/docs.json content/docs.json',
                     'echo "Updating package.json..."',
-                    'cp -fv package.json content/package.json',
+                    'cp -fv dist/package.json content/package.json',
                     'echo "Updating downloads..."',
                     'cp -rnvf dist/*.zip download/',
                     'echo "Staging..."',
