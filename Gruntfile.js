@@ -122,6 +122,9 @@ module.exports = function (grunt) {
         },
 
         qunit: {
+            options: {
+                timeout: 60000,
+            },
             all: ['test/*.html']
         }
     });
