@@ -353,6 +353,21 @@ nav a {
 }
 
 /**
+ * Download preparer.
+ */
+
+#download-widget h1 {
+    font-size: 2em;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0.5em;
+}
+
+#download-widget p {
+    margin: 0;
+    font-size: 0.8em;
+}
+
+/**
  * Badges.
  */
 

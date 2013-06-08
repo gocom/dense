@@ -1,0 +1,50 @@
+{
+    "name": "dense",
+    "title": "Dense",
+    "description": "Retina images plugin for jQuery",
+    "version": "0.0.1",
+    "homepage": "http://dense.rah.pw/",
+    "author": {
+        "name": "Jukka Svahn",
+        "url": "https://uproar-n-rattle.biz"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gocom/dense.git"
+    },
+    "bugs": {
+        "url": "https://github.com/gocom/dense/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/gocom/dense/master/LICENSE"
+        }
+    ],
+    "devDependencies": {
+        "grunt": "0.4.1",
+        "grunt-cli": "~0.1",
+        "grunt-contrib-uglify": "0.2.2",
+        "grunt-contrib-copy": "0.4.1",
+        "grunt-contrib-jshint": "0.6.0",
+        "grunt-bumpup": "0.2.0",
+        "jsdoc3": "git+https://github.com/jsdoc3/jsdoc.git#cfff8dd035ad376892139192c03718ce2dcc20f0",
+        "grunt-tagrelease": "0.2.0",
+        "grunt-shell": "0.2.2",
+        "grunt-contrib-qunit": "0.2.1"
+    },
+    "keywords": [
+        "jquery",
+        "retina",
+        "device",
+        "pixel",
+        "density",
+        "aware",
+        "image",
+        "responsive",
+        "plugin"
+    ],
+    "scripts": {
+        "test": "grunt travis --verbose"
+    }
+}

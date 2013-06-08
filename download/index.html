@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>Downloading Dense&hellip;</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+    <main id="download-widget">
+        <h1>Preparing <b>Package</b></h1>
+        <p>Finding the version for download&hellip;</p>
+        <noscript>
+            <p>Starting the download requires JavaScript.</p>
+        </noscript>
+    </main>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>
+    (function($)
+    {
+        var w = $('#download-widget');
+
+        $.ajax({url : '/content/package.json'})
+            .done(function (data)
+            {
+                if ($.type(data) === 'object')
+                {
+                    w.find('h1 b').text(data.title);
+                    w.append('<p>Found package meta&hellip;</p>');
+
+                    var download = '/download/' + data.name + '.v' + data.version + '.zip';
+
+                    w.append($('<p>Starting <a>download</a> in 2 seconds&hellip;</p>').find('a').attr('href', download).end());
+
+                    window.setTimeout(function ()
+                    {
+                        window.location = download;
+                        w.append('<p>Download starting&hellip;</p>');
+                    }, 2000);
+                }
+                else
+                {
+                    w.append('<p>Unable to find package meta&hellip;</p>');
+                }
+            });
+    })(jQuery);
+    </script>
+</body>
+</html>
