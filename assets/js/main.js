@@ -1,10 +1,11 @@
-$(document).ready(function ()
+$script.ready('thar', function ()
+{
+    $('h2').thar().thar('getContentList', {target : $('nav')});
+});
+
+$script.ready('dense', function ()
 {
     $('.ratio').text($(window).dense('devicePixelRatio'));
-    $('h2').thar();
-    $('h2').thar('getContentList', {
-        target : $('nav')
-    });
 
     var docs = $('#docs');
 
@@ -104,16 +105,19 @@ $(document).ready(function ()
                 }
             });
 
-            Rainbow.color();
-            docs.find('h3').thar();
+            $script.ready('rainbow', function ()
+            {
+                Rainbow.color();
+            });
+
+            $script.ready('thar', function ()
+            {
+                docs.find('h3').thar();
+            });
         });
 });
 
-/**
- * Click to select.
- */
-
-(function ()
+$script.ready('jquery', function ()
 {
     $('.clikhi').click(function ()
     {
@@ -141,4 +145,53 @@ $(document).ready(function ()
             window.getSelection().addRange(range);
         }
 	});
-})();
+});
+
+$script.ready('jquery', function ()
+{
+    var w = $('#download-widget'), lastmod, time;
+
+    if (w.length)
+    {
+        $.ajax({url : '/content/package.json'})
+            .done(function (data, textStatus, jqXHR)
+            {
+                if ($.type(data) === 'object' && $.type(data.name) === 'string')
+                {
+                    lastmod = jqXHR.getResponseHeader('Last-Modified');
+
+                    w.find('h1 b').text(data.title);
+                    w.append('<p>Found package meta&hellip;</p>');
+                    w.append($('<p>Version <b></b>&hellip;</p>').find('b').text(data.version).end());
+
+                    if (lastmod)
+                    {
+                        time = new Date(lastmod);
+
+                        if (time.toString() !== 'Invalid Date')
+                        {
+                            w.append($('<p>Updated on <b></b>&hellip;</p>').find('b').text(time.getFullYear() + '/' + time.getMonth() + '/' + time.getDate()).end());
+                        }
+                    }
+
+                    var download = '/download/' + data.name + '.v' + data.version + '.zip';
+
+                    w.append($('<p>Starting <a>download</a> in 2 seconds&hellip;</p>').find('a').attr('href', download).end());
+
+                    window.setTimeout(function ()
+                    {
+                        window.location = download;
+                        w.append('<p>Download starting&hellip;</p>');
+                    }, 2000);
+                }
+                else
+                {
+                    w.append('<p>Unable to find package meta.</p>');
+                }
+            })
+            .fail(function ()
+            {
+                w.append('<p>Unable to retrieve package meta. Please try again.</p>');
+            });
+    }
+});
