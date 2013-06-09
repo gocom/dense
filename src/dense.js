@@ -116,9 +116,10 @@
      * image would be looked from /path/to/images/image_2x.jpg.
      *
      * When image is constructed from the src, the image existance is
-     * verified using HTTP HEAD request. The check makes sure no
-     * HTTP error code is returned, and that the received content-type
-     * is of an image. Vector image formats, like svg, are skipped.
+     * verified using HTTP HEAD request, if <code>ping</code> option is
+     * <code>true</code>. The check makes sure no HTTP error code is returned,
+     * and that the received content-type is of an image. Vector image formats,
+     * like svg, are skipped based on the file extension.
      *
      * This method can also be used to load image in semi-lazy fashion,
      * and avoid larger extra HTTP requests due to retina replacements.
@@ -127,16 +128,16 @@
      * before the JavaScript driven behaviour kicks in.
      *
      * @param    {Object}  [options={}]                  Options
-     * @param    {Boolean} [options.ping=true]           A prefix added to the generated links
-     * @param    {String}  [options.dimensions=preserve] What to do with the <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
+     * @param    {Boolean} [options.ping=true]           Check that the retina image exists before applying
+     * @param    {String}  [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
      * @return   {Object}  this
      * @method   init
      * @memberof jQuery.fn.dense
      * @fires    jQuery.fn.dense#dense-retina-loaded
      * @example
-     * $('img.retina').dense({
+     * $('img').dense({
      *  'ping'      : false,
-     *  'dimension' : true
+     *  'dimension' : 'update'
      * });
      */
 
