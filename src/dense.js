@@ -250,8 +250,10 @@
 
                 $(img).on('load.dense', function ()
                 {
-                    $this.attr('width', img.width).attr('height', img.height);
-                    $this.trigger('dense-dimensions-updated');
+                    $this.attr({
+                        width  : img.width,
+                        height : img.height
+                    }).trigger('dense-dimensions-updated');
                 });
             }
         });
