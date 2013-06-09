@@ -178,7 +178,7 @@
                     $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
                 };
 
-                $this.attr('src', image).data('dense-original', originalImage);
+                $this.attr('src', image);
 
                 if (options.dimensions == 'update')
                 {
