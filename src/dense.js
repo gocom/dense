@@ -168,7 +168,7 @@
                     return '_' + devicePixelRatio + 'x' + extension;
                 });
 
-                ping = options.ping && $.inArray(image, pathStack) === -1 && (regexProtocol.test(image) === false || image.indexOf('://' + document.domain) !== -1);
+                ping = options.ping && $.inArray(image, pathStack) == -1 && (!regexProtocol.test(image) || image.indexOf('://' + document.domain) != -1);
             }
 
             updateImage = function ()
