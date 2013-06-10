@@ -1,8 +1,9 @@
 (function($)
 {
     var image = $('<img id="image" src="resources/images/image.jpg" />'), loaded = 0;
-    $('body').append(image);
+    $('body').append(image).append('<img id="image2" src="resources/images/image.jpg" />');
     $('#image').dense('updateDimensions');
+    $('#image2').dense();
 
     var nonExistant = $('<img src="nonexistant.jpg" />').dense('updateDimensions').dense();
 
@@ -32,12 +33,18 @@
 
         test("updateDimensions:widthNonexistantImage", function()
         {
-            equal(nonExistant.attr('width'), undefined, 'image width is undefined');
+            var width = nonExistant.attr('width');
+            ok(width === undefined || width === 0, 'image width is undefined, or zero');
         });
 
         test('init:nonExistantNoChange', function ()
         {
             equal(nonExistant.attr('data-jquery-dense-original'), undefined, 'image not changed');
+        });
+
+        test('init:imagedone', function ()
+        {
+            equal($('.dense-loading').length, 0, 'image processed successfully');
         });
     });
 
