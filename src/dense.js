@@ -45,7 +45,7 @@
 	}
 	else
 	{
-		factory(jQuery);
+		factory(window.jQuery || window.Zepto);
 	}
 }(function ($)
 {
