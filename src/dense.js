@@ -160,6 +160,7 @@
             {
                 if (!originalImage || devicePixelRatio == 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
                 {
+                    $this.removeClass('dense dense-loading');
                     return;
                 }
 
