@@ -46,6 +46,13 @@ pre code {
     background: transparent;
 }
 
+pre .badge {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    background: #ccc;
+}
+
 /**
  * Syntax highlight.
  */
@@ -124,19 +131,47 @@ dd pre {
     border-top: 1px dotted #ddd;
 }
 
-dd pre > .badge {
-    margin: 0;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    background: #ccc;
-}
-
 dd pre > code {
     margin: 0 0 0 0.5em;
 }
 
 dl > dt:first-child {
     border-top: 0;
+}
+
+/**
+ * Element signature.
+ */
+
+.signature {
+    border-radius: 0.25em 0.25em 0 0;
+}
+
+.returns {
+    margin: 0;
+    border: 1px solid #ddd;
+    border-top: 0;
+    line-height: 1;
+    border-radius: 0 0 0.25em 0.25em;
+    color: #9da8ab;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.returns b {
+    line-height: 1.85;
+}
+
+.returns i, .returns b {
+    float: left;
+    margin: 0 0.3em 0 0;
+}
+
+.returns span {
+    float: left;
+    margin: -0.4em 0 -0.4em 0.3em;
+    border-left: 1px solid #ddd;
+    padding: 0.4em;
 }
 
 /**

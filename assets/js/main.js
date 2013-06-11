@@ -36,19 +36,49 @@ $script.ready('dense', function ()
             var basename = data.classes[0].name + '.' + data.classes[0].classes[0].name + '.' +
                 data.classes[0].classes[0].classes[0].name, 
                 constructor = data.classes[0].classes[0].classes[0].constructor, dl, dt, dd, params,
-                plugin = data.classes[0].classes[0].classes[0].name;
+                plugin = data.classes[0].classes[0].classes[0].name, elementType;
 
             var addElement = function (key, value)
             {
+                var signatureStart;
                 params = renderParams(value.parameters);
+
+                if (elementType === 'event')
+                {
+                    signatureStart = '$(window).on(\'' + value.name + '\'';
+                }
+                else
+                {
+                    signatureStart = basename + '(\'' + value.name + '\'';
+                }
+
+                var code = signatureStart + (params ? ', ' + params : '') + ')';
 
                 docs
                     .append($('<h3 />').text(value.name))
-                    .append(
-                        $('<pre class="language-javascript" />')
-                            .html($('<code />').text(basename + '(\'' + value.name + '\'' + (params ? ', ' + params : '') + ')'))
-                    )
-                    .append('<p>' + value.description.split("\n\n").join("</p><p>") + '</p>');
+                    .append($('<pre class="'+(value.returns ? 'signature ' : '')+' language-javascript" />').html($('<code />').text(code)));
+
+                if (value.returns)
+                {
+                    var returns = $('<p class="returns" />').html($('<span />').text(value.returns.description));
+
+                    if ($.type(value.returns.type) === 'array')
+                    {
+                        $.each(value.returns.type, function (key, type)
+                        {
+                            returns.prepend(' ').prepend($('<b class="badge" />').text(type));
+                        });
+                    }
+                    else
+                    {
+                        returns.prepend(' ').prepend($('<b class="badge" />').text(value.returns.type));
+                    }
+
+                    returns.prepend(' ').prepend('<i class="icon-chevron-right"></i>');
+                    docs.append(returns);
+                }
+
+                docs.append('<p>' + value.description.split("\n\n").join("</p><p>") + '</p>');
 
                 if (value.parameters.length)
                 {
@@ -114,6 +144,7 @@ $script.ready('dense', function ()
             if (data.classes[0].classes[0].classes[0].events.length)
             {
                 docs.append('<h2>Events</h2>');
+                elementType = 'event';
                 $.each(data.classes[0].classes[0].classes[0].events, addElement);
             }
 
