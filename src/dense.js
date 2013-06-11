@@ -49,7 +49,7 @@
 	}
 }(function ($)
 {
-    "use strict";
+    'use strict';
 
     /**
      * An array of checked image URLs.
