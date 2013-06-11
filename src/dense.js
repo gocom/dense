@@ -41,14 +41,14 @@
 {
     'use strict';
 
-	if (typeof define === 'function' && define.amd)
-	{
-		define(['jquery'], factory);
-	}
-	else
-	{
-		factory(window.jQuery || window.Zepto);
-	}
+    if (typeof define === 'function' && define.amd)
+    {
+        define(['jquery'], factory);
+    }
+    else
+    {
+        factory(window.jQuery || window.Zepto);
+    }
 }(function ($)
 {
     'use strict';
