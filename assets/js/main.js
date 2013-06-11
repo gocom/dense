@@ -7,7 +7,7 @@ $script.ready('dense', function ()
 {
     $('.ratio').text($(window).dense('devicePixelRatio'));
 
-    var docs = $('#docs');
+    var docs = $('.docs');
 
     var renderParams = function (parameters)
     {
