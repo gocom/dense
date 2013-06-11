@@ -285,7 +285,7 @@
         }
         else if ($.type(window.matchMedia) !== 'undefined')
         {
-            $.each([1.3, 1.5, 2, 3, 4, 5, 6], function (key, ratio)
+            $.each([1.3, 2, 3, 4, 5, 6], function (key, ratio)
             {
                 var mediaQuery = [
                     '(-webkit-min-device-pixel-ratio: '+ratio+')',
