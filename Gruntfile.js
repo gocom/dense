@@ -1,3 +1,5 @@
+/*jshint strict:false */
+
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -13,7 +15,7 @@ module.exports = function (grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.title %> v<%= pkg.version %> | Copyright (C) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> | <%= pkg.homepage %> | Released under the MIT License */\n',
-                report: "gzip"
+                report: 'gzip'
             },
             dist: {
                 files: {
@@ -54,8 +56,29 @@ module.exports = function (grunt) {
         jshint: {
             files: ['Gruntfile.js', 'src/*.js'],
             options: {
+                bitwise: true,
+                camelcase: true,
+                curly: true,
+                eqeqeq: true,
+                es3: true,
+                forin: true,
+                immed: true,
+                indent: 4,
+                latedef: true,
+                noarg: true,
+                noempty: true,
+                nonew: true,
+                quotmark: 'single',
+                undef: true,
+                unused: true,
+                strict: true,
+                trailing: true,
+                browser: true,
                 globals: {
-                    jQuery: true
+                    jQuery: true,
+                    Zepto: true,
+                    define: true,
+                    module: true
                 }
             }
         },
@@ -128,7 +151,7 @@ module.exports = function (grunt) {
 
         qunit: {
             options: {
-                timeout: 60000,
+                timeout: 60000
             },
             all: ['test/*.html']
         }
