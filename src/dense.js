@@ -289,6 +289,7 @@
             {
                 var mediaQuery = [
                     '(-webkit-min-device-pixel-ratio: '+ratio+')',
+                    '(min-resolution: '+Math.floor(ratio*96)+'dpi)',
                     '(min-resolution: '+ratio+'dppx)'
                 ].join(',');
 
