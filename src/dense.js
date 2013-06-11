@@ -160,7 +160,7 @@
 
             if (!image)
             {
-                if (!originalImage || devicePixelRatio == 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
+                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
                 {
                     $this.removeClass('dense dense-loading');
                     return;
@@ -171,7 +171,7 @@
                     return '_' + devicePixelRatio + 'x' + extension;
                 });
 
-                ping = options.ping && $.inArray(image, pathStack) == -1 && (!regexProtocol.test(image) || image.indexOf('://' + document.domain) != -1);
+                ping = options.ping && $.inArray(image, pathStack) === -1 && (!regexProtocol.test(image) || image.indexOf('://' + document.domain) !== -1);
             }
 
             updateImage = function ()
@@ -183,13 +183,13 @@
 
                 $this.attr('src', image);
 
-                if (options.dimensions == 'update')
+                if (options.dimensions === 'update')
                 {
                     $this.dense('updateDimensions').one('dense-dimensions-updated', readyImage);
                 }
                 else
                 {
-                    if (options.dimensions == 'remove')
+                    if (options.dimensions === 'remove')
                     {
                         $this.removeAttr('width height');
                     }
