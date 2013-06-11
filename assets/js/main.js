@@ -38,14 +38,7 @@ $script.ready('dense', function ()
                 constructor = data.classes[0].classes[0].classes[0].constructor, dl, dt, dd, params,
                 plugin = data.classes[0].classes[0].classes[0].name;
 
-            docs.append(
-                $('<pre class="language-javascript" />')
-                    .html($('<code />').text(basename + '(' + renderParams(constructor.parameters) + ')'))
-            );
-
-            docs.append($('<p />').html(constructor.description));
-
-            $.each(data.classes[0].classes[0].classes[0].functions, function (key, value)
+            var addElement = function (key, value)
             {
                 params = renderParams(value.parameters);
 
@@ -103,7 +96,26 @@ $script.ready('dense', function ()
                         docs.append($('<pre class="language-javascript" />').html($('<code />').text(value)));
                     });
                 }
-            });
+            };
+
+            docs.append(
+                $('<pre class="language-javascript" />')
+                    .html($('<code />').text(basename + '(' + renderParams(constructor.parameters) + ')'))
+            );
+
+            docs.append($('<p />').html(constructor.description));
+            
+            if (data.classes[0].classes[0].classes[0].functions.length)
+            {
+                docs.append('<h2>Methods</h2>');
+                $.each(data.classes[0].classes[0].classes[0].functions, addElement);
+            }
+
+            if (data.classes[0].classes[0].classes[0].events.length)
+            {
+                docs.append('<h2>Events</h2>');
+                $.each(data.classes[0].classes[0].classes[0].events, addElement);
+            }
 
             $script.ready('rainbow', function ()
             {
