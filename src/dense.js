@@ -296,9 +296,10 @@
 
                 if (!window.matchMedia(mediaQuery).matches)
                 {
-                    pixelRatio = ratio;
                     return false;
                 }
+
+                pixelRatio = ratio;
             });
         }
 
