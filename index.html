@@ -99,35 +99,6 @@
 
     </main>
 
-    <script src="/assets/js/script.min.js"></script>
-    <script>
-        $script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', 'jquery');
-        $script('/assets/js/main.js', 'main');
-
-        $script.ready('jquery', function()
-        {
-            $script('/assets/js/dense.min.js', 'dense');
-            $script('/assets/js/thar.min.js', 'thar');
-        });
-
-        $script('http://static.rahforum.biz/lib/v.rainbow.min.1346030279.js', 'rainbow', function ()
-        {
-            Rainbow.color();
-        });
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-41593502-1']);
-        _gaq.push(['_gat._anonymizeIp']);
-        _gaq.push(['_setDomainName', 'none']);
-        _gaq.push(['_setVisitorCookieTimeout', 0]);
-        _gaq.push(['_setSessionCookieTimeout', 0]);
-        _gaq.push(['_setCampaignCookieTimeout', 0]);
-        _gaq.push(['_setCampaignTrack', false]);
-        _gaq.push(['_setClientInfo', false]);
-        _gaq.push(['_setDetectFlash', false]);
-        _gaq.push(['_trackPageview']);
-
-        $script('http://www.google-analytics.com/ga.js');
-    </script>
+    <script data-main="/assets/js/main.js" src="/assets/js/require.js"></script>
 </body>
 </html>

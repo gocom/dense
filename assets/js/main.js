@@ -1,12 +1,28 @@
-$script.ready('thar', function ()
-{
-    $('h2').thar().thar('getContentList', {target : $('nav')});
+requirejs.config({
+    paths:
+    {
+        'jquery'  : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min'
+    }
 });
 
-$script.ready('dense', function ()
+require(['jquery', 'dense'], function ($, dense)
 {
     $('.ratio').text($(window).dense('devicePixelRatio'));
+});
 
+require(['jquery', 'thar'], function ($, thar)
+{
+    $('h2, h3').thar()
+    $('h2').thar('getContentList', {target : $('nav')});
+});
+
+require(['rainbow'], function ()
+{
+    window.Rainbow.color();
+});
+
+require(['jquery'], function ($)
+{
     var docs = $('.docs');
 
     var renderParams = function (parameters)
@@ -148,19 +164,19 @@ $script.ready('dense', function ()
                 $.each(data.classes[0].classes[0].classes[0].events, addElement);
             }
 
-            $script.ready('rainbow', function ()
+            require(['rainbow'], function ()
             {
-                Rainbow.color();
+                window.Rainbow.color();
             });
 
-            $script.ready('thar', function ()
+            require(['thar'], function ()
             {
-                docs.find('h3').thar();
+                docs.find('h2, h3').thar();
             });
         });
 });
 
-$script.ready('jquery', function ()
+require(['jquery'], function ($)
 {
     $('.clikhi').click(function ()
     {
@@ -190,7 +206,7 @@ $script.ready('jquery', function ()
 	});
 });
 
-$script.ready('jquery', function ()
+require(['jquery'], function ($)
 {
     var w = $('#download-widget'), lastmod, time;
 
@@ -238,3 +254,17 @@ $script.ready('jquery', function ()
             });
     }
 });
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41593502-1']);
+_gaq.push(['_gat._anonymizeIp']);
+_gaq.push(['_setDomainName', 'none']);
+_gaq.push(['_setVisitorCookieTimeout', 0]);
+_gaq.push(['_setSessionCookieTimeout', 0]);
+_gaq.push(['_setCampaignCookieTimeout', 0]);
+_gaq.push(['_setCampaignTrack', false]);
+_gaq.push(['_setClientInfo', false]);
+_gaq.push(['_setDetectFlash', false]);
+_gaq.push(['_trackPageview']);
+
+require(['http://www.google-analytics.com/ga.js']);
