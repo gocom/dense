@@ -71,7 +71,7 @@
                                     "name": "init",
                                     "access": "",
                                     "virtual": false,
-                                    "description": "Init is the default method responsible for rendering \na pixel-ratio-aware images.\n\nThis method is used to select the images that\nshould display retina-size images on high pixel ratio\ndevices. Dense defaults to the init method if no\nmethod is specified.\n\nWhen attached to an image, the correct image variation is\nselected based on the device's pixel ratio. If the image element\ndefines <code>data-{ratio}x</code> attributes (e.g. data-1x, data-2x, data-3x),\nthe most appropriate of those is selected.\n\nIf no data-ratio attributes are defined, the retina image is\nconstructed from the <code>src</code> attribute.\nThe searched high pixel ratio images follows\na <code>{imageName}_{ratio}x.{ext}</code> naming convention.\nFor an image found in /path/to/images/image.jpg, the 2x retina\nimage would be looked from /path/to/images/image_2x.jpg.\n\nWhen image is constructed from the src, the image existance is\nverified using HTTP HEAD request. The check makes sure no\nHTTP error code is returned, and that the received content-type\nis either <code>image/jpg</code>, <code>image/png</code>,\n<code>image/gif</code> or <code>image/bmp</code>. Vector image\nformats, like svg, are skipped.\n\nThis method can also be used to load image in semi-lazy fashion,\nand avoid larger extra HTTP requests due to retina replacements.\nThe data-1x attribute can be used to supstitute the src, making\nsure the browser doesn't try to download the normal image variation\nbefore the JavaScript driven behaviour kicks in.",
+                                    "description": "Init is the default method responsible for rendering \na pixel-ratio-aware images.\n\nThis method is used to select the images that\nshould display retina-size images on high pixel ratio\ndevices. Dense defaults to the init method if no\nmethod is specified.\n\nWhen attached to an image, the correct image variation is\nselected based on the device's pixel ratio. If the image element\ndefines <code>data-{ratio}x</code> attributes (e.g. data-1x, data-2x, data-3x),\nthe most appropriate of those is selected.\n\nIf no data-ratio attributes are defined, the retina image is\nconstructed from the <code>src</code> attribute.\nThe searched high pixel ratio images follows\na <code>{imageName}_{ratio}x.{ext}</code> naming convention.\nFor an image found in /path/to/images/image.jpg, the 2x retina\nimage would be looked from /path/to/images/image_2x.jpg.\n\nWhen image is constructed from the src, the image existance is\nverified using HTTP HEAD request, if <code>ping</code> option is\n<code>true</code>. The check makes sure no HTTP error code is returned,\nand that the received content-type is of an image. Vector image formats,\nlike svg, are skipped based on the file extension.\n\nThis method can also be used to load image in semi-lazy fashion,\nand avoid larger extra HTTP requests due to retina replacements.\nThe data-1x attribute can be used to supstitute the src, making\nsure the browser doesn't try to download the normal image variation\nbefore the JavaScript driven behaviour kicks in.",
                                     "parameters": [
                                         {
                                             "name": "options",
@@ -84,7 +84,7 @@
                                         {
                                             "name": "options.ping",
                                             "type": "Boolean",
-                                            "description": "A prefix added to the generated links",
+                                            "description": "Check that the retina image exists before applying",
                                             "default": "true",
                                             "optional": true,
                                             "nullable": ""
@@ -92,14 +92,22 @@
                                         {
                                             "name": "options.dimensions",
                                             "type": "String",
-                                            "description": "What to do with the <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>",
+                                            "description": "What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>",
                                             "default": "preserve",
+                                            "optional": true,
+                                            "nullable": ""
+                                        },
+                                        {
+                                            "name": "options.glue",
+                                            "type": "String",
+                                            "description": "String that glues the retina \"nx\" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>",
+                                            "default": "_",
                                             "optional": true,
                                             "nullable": ""
                                         }
                                     ],
                                     "examples": [
-                                        "$('img.retina').dense({\n 'ping'      : false,\n 'dimension' : true\n});"
+                                        "$('img').dense({\n 'ping'      : false,\n 'dimension' : 'update'\n});"
                                     ],
                                     "returns": {
                                         "type": "Object",
