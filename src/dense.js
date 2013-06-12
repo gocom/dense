@@ -134,6 +134,7 @@
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=true]           Check that the retina image exists before applying
      * @param    {String}  [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
+     * @param    {String}  [options.glue=_]              String that glues the retina "nx" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>
      * @return   {Object}  this
      * @method   init
      * @memberof jQuery.fn.dense
@@ -149,7 +150,8 @@
     {
         options = $.extend({
             ping       : true,
-            dimensions : 'preserve'
+            dimensions : 'preserve',
+            glue       : '_'
         }, options);
 
         this.filter('img').not('.dense').addClass('dense dense-loading').each(function ()
@@ -170,7 +172,7 @@
 
                 image = originalImage.replace(regexSuffix, function (extension)
                 {
-                    return '_' + devicePixelRatio + 'x' + extension;
+                    return options.glue + devicePixelRatio + 'x' + extension;
                 });
 
                 ping = options.ping && $.inArray(image, pathStack) === -1 && (!regexProtocol.test(image) || image.indexOf('://' + document.domain) !== -1);
