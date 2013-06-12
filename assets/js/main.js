@@ -14,7 +14,7 @@ require(['jquery', 'dense'], function ($, dense)
 require(['jquery', 'thar'], function ($, thar)
 {
     $('h2, h3').thar()
-    $('h2').thar('getContentList', {target : $('nav')});
+    $('main > h2').thar('getContentList', {target : $('nav')});
 });
 
 require(['rainbow'], function ()
