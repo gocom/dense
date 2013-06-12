@@ -7,8 +7,8 @@
 body {
     background: #fff;
     color: #666;
-    font: 1.75em Helvetica, sans-serif;
-    line-height: 1.75;
+    font: 1.75em Helvetica, Arial, sans-serif;
+    line-height: 1.714; /* 28/48 */
 }
 
 main {
@@ -210,7 +210,7 @@ strong, b {
 }
 
 small {
-    font-size: 0.8em;
+    font-size: 0.75em;
 }
 
 /**
@@ -267,7 +267,7 @@ img {
 header {
     text-align: center;
     padding: 3em 10%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), 0 0 1px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -312,17 +312,19 @@ nav ul {
 
 nav li {
     display: inline-block;
+    line-height: 1;
+    
 }
 
 nav a {
     text-decoration: none;
     color: inherit;
-    font-size: 0.8em;
+    font-size: 0.857em;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 0.5em;
+    padding: 0 0.5em;
+    line-height: 2.750;
 }
-
 
 /**
  * Buttons.
@@ -399,7 +401,7 @@ nav a {
 
 #download-widget p {
     margin: 0;
-    font-size: 0.8em;
+    font-size: 0.857em;
 }
 
 #download-widget .back {
@@ -429,7 +431,7 @@ nav a {
     text-align: center;
     margin: 5em 0 0 0;
     padding: 2em 0 0 0;
-    font-size: 0.8em;
+    font-size: 0.857em;
     position: relative;
 }
 
