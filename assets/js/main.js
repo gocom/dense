@@ -17,9 +17,9 @@ require(['jquery', 'thar'], function ($, thar)
     $('main > h2').thar('getContentList', {target : $('nav')});
 });
 
-require(['rainbow'], function ()
+require(['prism'], function ()
 {
-    window.Rainbow.color();
+    Prism.highlightAll();
 });
 
 require(['jquery'], function ($)
@@ -73,7 +73,7 @@ require(['jquery'], function ($)
 
                 docs
                     .append($('<h3 />').text(value.name))
-                    .append($('<pre class="'+(value.returns ? 'signature ' : '')+' language-javascript" />').html($('<code />').text(code)));
+                    .append($('<pre class="'+(value.returns ? 'signature ' : '')+'" />').html($('<code class="language-javascript" />').text(code)));
 
                 if (value.returns)
                 {
@@ -140,14 +140,14 @@ require(['jquery'], function ($)
 
                     $.each(value.examples, function (key, value)
                     {
-                        docs.append($('<pre class="language-javascript" />').html($('<code />').text(value)));
+                        docs.append($('<pre />').html($('<code class="language-javascript" />').text(value)));
                     });
                 }
             };
 
             docs.append(
-                $('<pre class="language-javascript" />')
-                    .html($('<code />').text(basename + '(' + renderParams(constructor.parameters) + ')'))
+                $('<pre />')
+                    .html($('<code class="language-javascript" />').text(basename + '(' + renderParams(constructor.parameters) + ')'))
             );
 
             docs.append($('<p />').html(constructor.description));
@@ -165,10 +165,10 @@ require(['jquery'], function ($)
                 $.each(data.classes[0].classes[0].classes[0].events, addElement);
             }
 
-            require(['rainbow'], function ()
-            {
-                window.Rainbow.color();
-            });
+            //require(['prism'], function ()
+            //{
+                //Prism.highlightAll();
+                //});
 
             require(['thar'], function ()
             {

@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <title>Dense</title>
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700|Oleo+Script+Swash+Caps" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
@@ -47,7 +46,7 @@
 
         <p>The above responsive, retina-ready image is implemented by simply including the jQuery plugin on the page and calling its <code>$.fn.dense()</code> initializer method. The initializer method is set to target those <code>img</code> elements that should serve retina-ready images when needed.</p>
 
-        <pre class="language-html"><code>&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
+        <pre><code class="language-markup">&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;dense.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     $('img').dense();
@@ -65,7 +64,7 @@
 
         <p>In addition to normal browser global use, <b>Dense</b> can used with <a href="http://requirejs.org/">RequireJS</a> and other AMD loaders. The plugin registers itself as an anonymous module, if the use of an AMD API is detected.</p>
 
-        <pre class="language-javascript"><code>require(['jquery', 'dense'], function ($) {
+        <pre><code class="language-javascript">require(['jquery', 'dense'], function ($) {
     $('img').dense();
 });</code></pre>
 

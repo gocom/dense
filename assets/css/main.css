@@ -57,50 +57,80 @@ pre .badge {
  * Syntax highlight.
  */
 
-pre .comment {
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
     color: #998;
 }
 
-pre .support {
-    color: #0086B3;
+.support {
+    color: #0086b3;
 }
 
-pre .tag, pre .tag-name {
-    color: navy;
+.token.punctuation {
+    color: #9da8ab;
 }
 
-pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
-    font-weight: bold;
-}
-
-pre .css-property, pre .css-value, pre .vendor-prefix, pre .support.namespace {
+.token.namespace {
     color: #333;
 }
 
-pre .constant.numeric, pre .keyword.unit, pre .hex-color {
+.token.function {
+    color: #900;
+}
+
+.token.class {
+    color: #458;
+}
+
+.token.property {
+    font-weight: bold;
+}
+
+.token.boolean,
+.token.number {
     font-weight: normal;
     color: #099;
 }
 
-pre .entity.class {
-    color: #458;
+.token.tag {
+    color: navy;
 }
 
-pre .entity.id, pre .entity.function {
-    color: #900;
-}
-
-pre .attribute, pre .variable {
+.token.attr-name {
     color: teal;
 }
 
-pre .string, pre .support.value  {
+.token.atrule,
+.token.attr-value,
+.token.selector,
+.token.string {
     font-weight: normal;
     color: #d14;
 }
 
-pre .regexp {
+.token.operator,
+.token.entity,
+.token.url {
+    color: #a67f59;
+}
+
+.token.keyword {
+    font-weight: bold;
+}
+
+.token.regex,
+.token.important {
     color: #009926;
+}
+
+.token.important {
+    font-weight: bold;
+}
+
+.token.entity {
+    cursor: help;
 }
 
 /**
