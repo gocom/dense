@@ -1,7 +1,8 @@
 requirejs.config({
     paths:
     {
-        'jquery'  : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min'
+        'jquery'  : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
+        'webfont' : '//ajax.googleapis.com/ajax/libs/webfont/1.4.6/webfont'
     }
 });
 
@@ -253,6 +254,16 @@ require(['jquery'], function ($)
                 w.append('<p>Unable to retrieve package meta. Please try again.</p>');
             });
     }
+});
+
+require(['webfont'], function ()
+{
+    WebFont.load({
+        google:
+        {
+            families: ['Inconsolata:400,700', 'Oleo Script Swash Caps']
+        }
+    });
 });
 
 var _gaq = _gaq || [];
