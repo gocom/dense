@@ -55,6 +55,32 @@
 
         <p>You may also initialize Dense with its default configuration by adding a <code>dense-retina</code> class to the <code>body</code> element. Dense will target all images present on the page at the document ready event, using the default option values. This allows you to run the plugin without manually initializing it, or having to write tiny bit of JavaScript.</p>
 
+        <h2>Supports</h2>
+
+        <h3>Web browsers</h3>
+
+        <p><b>Dense</b> will run on any modern web browser, and is able to display retina images on browser, device and platform combinations that supports high pixel ratio features. This includes Retina devices with Opera Mobile, Webkit based mobile browsers, like Safari on iOS, and desktop browsers such as Chrome and Safari. The base browser compatibility is basically the same as with the supported jQuery versions.</p>
+
+        <h3>AMD</h3>
+
+        <p>In addition to normal browser global use, <b>Dense</b> can used with <a href="http://requirejs.org/">RequireJS</a> and other AMD loaders. The plugin registers itself as an anonymous module, if the use of an AMD API is detected.</p>
+
+        <pre class="language-javascript"><code>require(['jquery', 'dense'], function ($) {
+    $('img').dense();
+});</code></pre>
+
+        <p>With the default configuration, the above would load <code>scripts/jquery.js</code> and <code>scripts/dense.js</code>, and then attach the retina functionality to all images on the document at the time.</p>
+
+        <h3>jQuery</h3>
+
+        <p>Currently <b>Dense</b> support jQuery library versions starting from 1.7. This includes versions such as, but not limited to, 1.7.2, 1.8.3, 1.9.1, 1.10.1 and 2.0.2.</p>
+
+        <h3>Zepto</h3>
+
+        <p>In addition to jQuery, the plugin has a <strong>limited</strong> support for <a href="http://zeptojs.com/">Zepto</a> framework. This means you can use it instead of jQuery, if you are feeling adventurous and only need to offer compatibility to set of modern platforms. The plugin should work decently well with Zepto on the most up to date WebKit browsers, but doesn't contain any specific compatibility code for it. How well the plugin works, depends entirely on Zepto's API.</p>
+
+        <p>To run Dense with Zepto, you will need the Zepto 1.0.0 framework's default Core, Event and Ajax modules and <a href="https://github.com/sudhirj/simply-deferred/">Simply Deferred</a> plugin. While possible, running Dense on Zepto isn't exactly recommend, especially if you are not (JavaScript) developer yourself. If you wish to use Dense as a AMD module, note that Zepto 1.0.0 itself doesn't come as an AMD module. If you are going use an extra require configuration or wrapper plugin to get Zepto to load as an AMD module, note that Dense references a module named <code>jquery</code> as its dependency.</p>
+
         <div class="author">
             <div class="face"></div>
             <p><b>Dense</b> is made by Jukka Svahn, a developer at <a href="http://textpattern.com">Textpattern</a>.</p>
