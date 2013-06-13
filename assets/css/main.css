@@ -11,7 +11,7 @@ body {
     line-height: 1.714; /* 28/48 */
 }
 
-main {
+main, footer {
     padding: 0 10% 2em 10%;
     display: block;
 }
@@ -354,6 +354,22 @@ nav a {
     text-transform: uppercase;
     padding: 0 0.5em;
     line-height: 2.750;
+}
+
+/**
+ * Footer.
+ */
+
+footer {
+    border-top: 1px solid #ddd;
+    
+}
+
+footer .copy {
+    color: #9da8ab;
+    font-size: 0.857em;
+    border-top: 1px solid #ddd;
+    padding: 2em 0 0 0;
 }
 
 /**
