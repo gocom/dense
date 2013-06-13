@@ -73,7 +73,7 @@ require(['jquery'], function ($)
 
                 docs
                     .append($('<h3 />').text(value.name))
-                    .append($('<pre class="'+(value.returns ? 'signature ' : '')+'" />').html($('<code class="language-javascript" />').text(code)));
+                    .append($('<pre'+(value.returns ? ' class="signature" ' : '')+' />').html($('<code class="language-javascript" />').text(code)));
 
                 if (value.returns)
                 {
@@ -165,10 +165,10 @@ require(['jquery'], function ($)
                 $.each(data.classes[0].classes[0].classes[0].events, addElement);
             }
 
-            //require(['prism'], function ()
-            //{
-                //Prism.highlightAll();
-                //});
+            require(['prism'], function ()
+            {
+                Prism.highlightAll();
+            });
 
             require(['thar'], function ()
             {
