@@ -388,17 +388,26 @@ footer .copy {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover,
-.button:focus {
-    color: #fff;
-    background: #000;
-}
-
 .light {
     background: #fff;
     color: inherit;
     border: 1px solid #ddd;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.button[href*="gittip.com"] {
+    background: #a4db37;
+    color: #fff;
+    border: 0;
+    border: 1px solid #97c932;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover,
+.button:focus {
+    color: #fff;
+    background: #000;
+    border-color: #000;
 }
 
 /**
