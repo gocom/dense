@@ -297,7 +297,7 @@ img {
 
 header {
     text-align: center;
-    padding: 3em 10%;
+    padding: 5.5em 10% 3em 10%;
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), 0 0 1px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -334,7 +334,14 @@ header .social a {
 nav {
     display: block;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 5;
 }
 
 nav ul {
@@ -353,7 +360,7 @@ nav a {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0 0.5em;
-    line-height: 2.750;
+    line-height: 4.750;
     display: inline-block;
 }
 
@@ -417,33 +424,36 @@ footer .copy {
  */
 
 .download {
-    background: #daeffa;
-    color: #fff;
     margin: 0;
-    border-radius: 0.3em;
-    display: inline-block;
 }
 
 .download code {
     padding: 0 1em;
     display: inline-block;
-    line-height: 1;
-    background: transparent;
+    background: #daeffa;
+    margin: 0;
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
 }
 
-.download .button {
-    margin: 0;
-    border-radius: 0 0.3em 0.3em 0;
-}
 
 .download-notes {
     font-size: 0.65em;
-    margin: 1em;
+    margin: 0 0 1em 0;
     color: #9da8ab;
 }
 
 .download-notes a {
     color: inherit;
+}
+
+.download-notes a:hover,
+.download-notes a:focus {
+    color: #000;
+}
+
+.download code, .download .button {
+    margin: 0 0 0.5em 0;
 }
 
 /**

@@ -19,6 +19,7 @@ require(['jquery', 'thar'], function ($, thar)
 {
     $('h2, h3').thar()
     $('main > h2').thar('getContentList', {target : $('nav')});
+    $('nav ul').prepend('<li><a href="#"><i class="icon-home"></i></a></li>')
 });
 
 require(['prism'], function ()
