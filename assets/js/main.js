@@ -3,6 +3,10 @@ requirejs.config({
     {
         'jquery'  : '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
         'webfont' : '//ajax.googleapis.com/ajax/libs/webfont/1.4.6/webfont'
+    },
+    shim:
+    {
+        'tooltipster' : ['jquery']
     }
 });
 
@@ -256,6 +260,43 @@ require(['jquery'], function ($)
     }
 });
 
+require(['jquery', 'tooltipster'], function ($)
+{
+    var button = $('.download .button'), time, tooltip = [];
+
+    if (button.length === 0)
+    {
+        return;
+    }
+
+    $.ajax({url : '/content/package.json'})
+        .done(function (data, textStatus, jqXHR)
+        {
+            if ($.type(data) !== 'object')
+            {
+                return;
+            }
+
+            tooltip.push('Version ' + data.version);
+
+            if (time = jqXHR.getResponseHeader('Last-Modified'))
+            {
+                time = new Date(time);
+
+                if (time.toString() !== 'Invalid Date')
+                {
+                    tooltip.push([time.getFullYear(), time.getMonth(), time.getDate()].join('/'));
+                }
+            }
+
+            button
+                .attr('href', '/download/' + data.name + '.v' + data.version + '.zip')
+                .attr('title', tooltip.join(', '))
+                .attr('download', 'download')
+                .tooltipster();
+        });
+});
+
 require(['webfont'], function ()
 {
     WebFont.load({
@@ -264,6 +305,11 @@ require(['webfont'], function ()
             families: ['Inconsolata:400,700', 'Oleo Script Swash Caps']
         }
     });
+});
+
+require(['tooltipster'], function ()
+{
+    $('.social [title], main > [title]').tooltipster();
 });
 
 var _gaq = _gaq || [];
