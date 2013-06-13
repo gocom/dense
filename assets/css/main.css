@@ -221,6 +221,7 @@ dl > dt:first-child {
 
 a {
     color: #37bddb;
+    transition: color 0.5s;
 }
 
 a:hover {
@@ -386,6 +387,7 @@ footer .copy {
     display: inline-block;
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
 }
 
 .light {
