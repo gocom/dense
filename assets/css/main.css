@@ -344,7 +344,6 @@ nav ul {
 nav li {
     display: inline-block;
     line-height: 1;
-    
 }
 
 nav a {
@@ -355,6 +354,7 @@ nav a {
     text-transform: uppercase;
     padding: 0 0.5em;
     line-height: 2.750;
+    display: inline-block;
 }
 
 /**
