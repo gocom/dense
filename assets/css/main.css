@@ -308,6 +308,13 @@ header h1 {
     line-height: 1;
     font: 4em "Oleo Script Swash Caps", Helvetica, sans-serif;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0.3em 0.5em rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s;
+    min-height: 1.4em;
+}
+
+.wf-active header h1 {
+    opacity: 1;
 }
 
 header h1 a,
@@ -336,7 +343,7 @@ header .social a {
  */
 
 nav {
-    display: block;
+    display: none;
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
@@ -429,6 +436,13 @@ footer .copy {
 
 .download {
     margin: 0;
+    min-height: 3.5em;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.wf-active .download {
+    opacity: 1;
 }
 
 .download code {
@@ -439,7 +453,6 @@ footer .copy {
     border-radius: 0.3em;
     padding: 0.5em 1em;
 }
-
 
 .download-notes {
     font-size: 0.65em;
