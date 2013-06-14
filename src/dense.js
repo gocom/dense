@@ -132,7 +132,7 @@
      * before the JavaScript driven behaviour kicks in.
      *
      * @param    {Object}  [options={}]                  Options
-     * @param    {Boolean} [options.ping=true]           Check that the retina image exists before applying
+     * @param    {Boolean} [options.ping=null]           Check image existence. If the default <code>NULL</code> checks local images, <code>FALSE</code> disables checking and <code>TRUE</code> checks even external images cross-domain
      * @param    {String}  [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
      * @param    {String}  [options.glue=_]              String that glues the retina "nx" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>
      * @return   {Object}  this
@@ -149,7 +149,7 @@
     methods.init = function (options)
     {
         options = $.extend({
-            ping       : true,
+            ping       : null,
             dimensions : 'preserve',
             glue       : '_'
         }, options);
@@ -175,7 +175,7 @@
                     return options.glue + devicePixelRatio + 'x' + extension;
                 });
 
-                ping = options.ping && $.inArray(image, pathStack) === -1 && (!regexProtocol.test(image) || image.indexOf('://' + document.domain) !== -1);
+                ping = options.ping !== false && $.inArray(image, pathStack) === -1 && (options.ping === true || !regexProtocol.test(image) || image.indexOf('://' + document.domain) !== -1);
             }
 
             updateImage = function ()
