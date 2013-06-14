@@ -84,19 +84,17 @@ require(['jquery'], function ($)
 
             var addElement = function (key, value)
             {
-                var signatureStart;
+                var code;
                 params = renderParams(value.parameters);
 
                 if (elementType === 'event')
                 {
-                    signatureStart = '$(window).on(\'' + value.name + '\'';
+                    code = '$(window).on(\'' + value.name + '\', fn' + (params ? ' (' + params + ')' : '') + ')';
                 }
                 else
                 {
-                    signatureStart = basename + '(\'' + value.name + '\'';
+                    code = basename + '(\'' + value.name + '\'' + (params ? ', ' + params : '') + ')';
                 }
-
-                var code = signatureStart + (params ? ', ' + params : '') + ')';
 
                 docs
                     .append($('<h3 />').text(value.name))
