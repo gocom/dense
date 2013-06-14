@@ -310,8 +310,6 @@ require(['jquery', 'tooltipster'], function ($)
                 }
             }
 
-            tooltip.push('<a href="#">Changes</a>');
-
             button
                 .attr('href', '/download/' + data.name + '.v' + data.version + '.zip')
                 .attr('title', tooltip.join(', '))
