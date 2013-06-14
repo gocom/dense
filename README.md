@@ -1,9 +1,9 @@
-Dense
+Dense.js
 =====
 
 [Homepage](http://dense.rah.pw) | [Issues](https://github.com/gocom/dense/issues) | [![Build Status](https://travis-ci.org/gocom/dense.png?branch=master)](https://travis-ci.org/gocom/dense)
 
-Dense is a jQuery plugin for serving retina-ready, high pixel ratio images with ease. Small, ease-to-adapt, yet very customizable and works cross-browser. Dense adds support for ```data-ratiox``` attributes and Apple's retina image naming convention to your content images.
+Dense is a jQuery plugin for serving retina-ready, high pixel ratio images with ease. Small, ease-to-adapt, yet very customizable and works cross-browser. With Dense, your content images get support for ```data-ratiox``` attributes and Apple's retina image naming convention.
 
 Install
 -----
@@ -25,7 +25,7 @@ Using Dense is simple. Include the plugin and initialize its method:
 </script>
 ```
 
-For more instruction and options see the [documentation](http://dense.rah.pw).
+For more instructions and options see the [documentation](http://dense.rah.pw).
 
 Build
 -----
