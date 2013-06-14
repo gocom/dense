@@ -9,6 +9,7 @@ body {
     color: #666;
     font: 1.75em Helvetica, Arial, sans-serif;
     line-height: 1.714; /* 28/48 */
+    overflow-x: hidden;
 }
 
 main, footer {
@@ -288,7 +289,7 @@ img {
     padding: 0.6em;
     border: 1px solid #ddd;
     box-shadow: 0 0.2em 0.3em rgba(0, 0, 0, 0.05);
-    width: 100%;
+    max-width: 100%;
     height: auto;
     box-sizing: border-box;
 }
@@ -309,7 +310,7 @@ header h1 {
     margin: 0;
     line-height: 1;
     font: 4em "Oleo Script Swash Caps", Helvetica, sans-serif;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0.3em 0.5em rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.5s;
     min-height: 1.4em;
@@ -329,7 +330,6 @@ header h1 a:hover {
 header .slogan {
     margin: 0 0 1em 0;
     color: #9da8ab;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(255, 255, 255, 0.1);
 }
 
 header .social {
@@ -387,15 +387,15 @@ nav a {
     display: none;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 99;
-    width: 10%;
-    text-align: center;
     color: rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
-    font-size: 0.857em;
-    line-height: 2.750;
     cursor: pointer;
+    line-height: 1;
+    padding: 0.5em;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 0.25em 0;
 }
 
 /**
@@ -773,6 +773,39 @@ footer .copy {
 
 @media screen and (max-width: 768px) {
 
+    body {
+        font-size: 1em;
+        line-height: 2;
+    }
+
+    header {
+        padding-top: 1em;
+        padding-bottom: 2em;
+        background-size: cover;
+    }
+
+    header .slogan {
+        margin-top: -1em;
+    }
+
+    .download code,
+    .download-notes {
+        display: none;
+    }
+
+    header .download .button {
+        font-size: 1.375em;
+    }
+
+    header .social {
+        margin: 1em 0 0 0;
+    }
+
+    header .social a {
+        padding: 0.1em 0.6em;
+        font-size: 0.857em;
+    }
+
 	#toggle {
 		display: block;
 	}
@@ -786,7 +819,29 @@ footer .copy {
         display: block;
     }
 
-    nav li a {
+    nav a {
         border-bottom: 1px solid #ddd;
+        font-size: 1em;
+    }
+
+    header, main, footer {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .jquery-thar-anchor {
+        display: none;
+    }
+
+    p, h1, h2, h3, h4, h5, h6, pre, blockquote, table, dl {
+        margin: 1.5em 0 0 0;
+    }
+
+    .author {
+        margin: 120px 0 0 0;
+    }
+
+    .author .face {
+        top: -120px;
     }
 }
