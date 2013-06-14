@@ -22,7 +22,7 @@ require(['jquery', 'thar'], function ($, thar)
         body = $('body');
 
     $('h2, h3').thar();
-    $('main > h2').thar('getContentList', {target : nav});
+    $('main > h2').slice(0, -1).thar('getContentList', {target : nav});
 
     nav.find('ul').prepend('<li><a href="#"><i class="icon-home"></i></a></li>');
     nav.addClass('fadeIn');
@@ -309,6 +309,8 @@ require(['jquery', 'tooltipster'], function ($)
                     tooltip.push([time.getFullYear(), time.getMonth(), time.getDate()].join('/'));
                 }
             }
+
+            tooltip.push('<a href="#">Changes</a>');
 
             button
                 .attr('href', '/download/' + data.name + '.v' + data.version + '.zip')
