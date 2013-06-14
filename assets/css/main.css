@@ -326,18 +326,6 @@ header h1 a:hover {
     vertical-align: middle;
 }
 
-header h1 span {
-    font-family: Inconsolata;
-    font-size: 0.4em;
-    font-weight: bold;
-    position: absolute;
-    margin: 1.5em -3em 0 0;
-    letter-spacing: -0.1em;
-    opacity: 0.6;
-    transition: all 0.5s;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-}
-
 header .slogan {
     margin: 0 0 1em 0;
     color: #9da8ab;
