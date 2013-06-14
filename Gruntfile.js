@@ -170,6 +170,13 @@ module.exports = function (grunt) {
         grunt.task.run('shell:jsdoc');
     });
 
+    grunt.registerTask('publish', function ()
+    {
+        grunt.task.run('jsdoc');
+        grunt.task.run('compress');
+        grunt.task.run('shell:publish');
+    });
+
     grunt.registerTask('travis', ['jshint', 'qunit', 'build']);
 
     grunt.registerTask('release', function (type)
@@ -184,12 +191,5 @@ module.exports = function (grunt) {
         grunt.task.run('build');
         grunt.task.run('tagrelease');
         grunt.registerTask('publish');
-    });
-
-    grunt.registerTask('publish', function ()
-    {
-        grunt.task.run('jsdoc');
-        grunt.task.run('compress');
-        grunt.task.run('shell:publish');
     });
 };
