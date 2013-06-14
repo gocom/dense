@@ -14,6 +14,8 @@ body {
 main, footer {
     padding: 0 10% 2em 10%;
     display: block;
+    max-width: 35em;
+    margin: auto;
 }
 
 /**
@@ -343,7 +345,6 @@ header .social a {
  */
 
 nav {
-    display: none;
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
@@ -373,6 +374,27 @@ nav a {
     padding: 0 0.5em;
     line-height: 4.750;
     display: inline-block;
+}
+
+#toggle {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    width: 10%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+    font-size: 0.857em;
+    line-height: 2.750;
+    cursor: pointer;
 }
 
 /**
@@ -702,6 +724,68 @@ footer .copy {
     -ms-transition-property: opacity;
     transition-property: opacity;
 }
+
 .tooltipster-fade-show {
     opacity: 1;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.toggled {
+    display: block;
+}
+
+/**
+ * Animations.
+ */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+}
+
+/**
+ * Responsive overrides.
+ */
+
+@media screen and (max-width: 768px) {
+
+	#toggle {
+		display: block;
+	}
+
+    nav {
+        display: none;
+        bottom: 0;
+    }
+
+    nav li, nav a {
+        display: block;
+    }
+
+    nav li a {
+        border-bottom: 1px solid #ddd;
+    }
 }

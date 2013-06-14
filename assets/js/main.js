@@ -17,10 +17,31 @@ require(['jquery', 'dense'], function ($, dense)
 
 require(['jquery', 'thar'], function ($, thar)
 {
-    $('h2, h3').thar()
-    $('main > h2').thar('getContentList', {target : $('nav')});
-    $('nav ul').prepend('<li><a href="#"><i class="icon-home"></i></a></li>');
-    $('nav').fadeIn();
+    var toggle = $('<div id="toggle"><i class="icon-reorder icon-large"></i></div>'),
+        nav = $('nav'),
+        body = $('body');
+
+    $('h2, h3').thar();
+    $('main > h2').thar('getContentList', {target : nav});
+
+    nav.find('ul').prepend('<li><a href="#"><i class="icon-home"></i></a></li>');
+    nav.addClass('fadeIn');
+    body.append(toggle);
+
+    toggle.click(function()
+	{
+		nav.toggleClass('toggled');
+        body.toggleClass('noscroll');
+	});
+
+    $('nav').find('a').click(function ()
+    {
+        if (nav.is('.toggled'))
+        {
+		    nav.toggleClass('toggled');
+            body.toggleClass('noscroll');
+        }
+    });
 });
 
 require(['prism'], function ()
