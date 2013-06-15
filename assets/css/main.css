@@ -349,7 +349,7 @@ nav {
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.1);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -377,34 +377,48 @@ nav a {
     display: inline-block;
 }
 
+.menuOpen nav {
+    display: block;
+    position: fixed;
+}
+
 #toggle {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    overflow: hidden;
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 2;
     color: rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    line-height: 1;
-    padding: 0.5em;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 0 0 0.25em 0;
+    font-size: 0.857em;
+    font-weight: bold;
+    line-height: 4.750;
+    text-align: center;
+    width: 10%;
+}
+
+#toggle a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menuOpen #toggle {
+    z-index: 99;
 }
 
 /**
  * Footer.
  */
 
-footer {
+footer > p:first-child {
     border-top: 1px solid #ddd;
-    
+    padding-top: 2em;
+    margin: 0;
 }
 
 footer .copy {
@@ -730,14 +744,6 @@ footer .copy {
     opacity: 1;
 }
 
-.noscroll {
-    overflow: hidden;
-}
-
-.toggled {
-    display: block;
-}
-
 /**
  * Animations.
  */
@@ -807,12 +813,18 @@ footer .copy {
     }
 
 	#toggle {
-		display: block;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+        border-radius: 0 0 0.25em 0;
+        padding: 1em 0.5em;
+        font-size: 1em;
+        line-height: 1;
 	}
 
     nav {
         display: none;
         bottom: 0;
+        position: fixed;
     }
 
     nav li, nav a {
@@ -822,6 +834,10 @@ footer .copy {
     nav a {
         border-bottom: 1px solid #ddd;
         font-size: 1em;
+    }
+
+    .menuOpen {
+        overflow: hidden;
     }
 
     header, main, footer {

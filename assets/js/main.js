@@ -17,9 +17,16 @@ require(['jquery', 'dense'], function ($, dense)
 
 require(['jquery', 'thar'], function ($, thar)
 {
-    var toggle = $('<div id="toggle"><i class="icon-reorder icon-large"></i></div>'),
+    var toggle = $('<div id="toggle"><a href="#"><i class="icon-reorder"></i></a></div>'),
         nav = $('nav'),
         body = $('body');
+
+    require(['tooltipster'], function ()
+    {
+        toggle.find('a').attr('title', 'Toggle menu').tooltipster({
+            position : 'bottom'
+        });
+    });
 
     $('h2, h3').thar();
     $('main > h2').slice(0, -1).thar('getContentList', {target : nav});
@@ -27,20 +34,17 @@ require(['jquery', 'thar'], function ($, thar)
     nav.find('ul').prepend('<li><a href="#"><i class="icon-home"></i></a></li>');
     nav.addClass('fadeIn');
     body.append(toggle);
+    toggle.show();
 
-    toggle.click(function()
+    toggle.find('a').click(function (e)
 	{
-		nav.toggleClass('toggled');
-        body.toggleClass('noscroll');
+        e.preventDefault();
+        body.toggleClass('menuOpen');
 	});
 
     $('nav').find('a').click(function ()
     {
-        if (nav.is('.toggled'))
-        {
-		    nav.toggleClass('toggled');
-            body.toggleClass('noscroll');
-        }
+        body.removeClass('menuOpen');
     });
 });
 
