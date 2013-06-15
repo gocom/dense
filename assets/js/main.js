@@ -42,7 +42,7 @@ require(['jquery', 'thar'], function ($, thar)
         body.toggleClass('menuOpen');
 	});
 
-    $('nav').find('a').click(function ()
+    nav.find('a').click(function ()
     {
         body.removeClass('menuOpen');
     });
