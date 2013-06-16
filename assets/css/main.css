@@ -411,14 +411,8 @@ nav a {
     transition: padding 0.5s;
 }
 
-.menuOpen #toggle {
-    z-index: 99;
-}
-
 .menuOpen #toggle a {
-    padding-top: 0;
-    padding-bottom: 1em;
-    line-height: 4.750;
+    padding-top: 5.250em;
 }
 
 /**
@@ -835,7 +829,6 @@ footer .copy {
 
     .menuOpen #toggle a {
         padding: 0.5em;
-        line-height: 1;
     }
 
     nav {
