@@ -287,7 +287,7 @@ require(['jquery'], function ($)
 
 require(['jquery', 'tooltipster'], function ($)
 {
-    var button = $('.download .button'), time, tooltip = [];
+    var button = $('.download .dld'), time, tooltip = [];
 
     if (button.length === 0)
     {
