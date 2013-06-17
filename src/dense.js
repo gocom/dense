@@ -143,7 +143,7 @@
      * @return   {Object}  this
      * @method   init
      * @memberof jQuery.fn.dense
-     * @fires    jQuery.fn.dense#dense-retina-loaded
+     * @fires    jQuery.fn.dense#denseRetinaReady.dense
      * @example
      * $('img').dense({
      *  'ping'      : false,
@@ -187,14 +187,14 @@
             {
                 var readyImage = function ()
                 {
-                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('dense-retina-loaded');
+                    $this.removeClass('dense-loading').addClass('dense-ready').trigger('denseRetinaReady.dense');
                 };
 
                 $this.attr('src', image);
 
                 if (options.dimensions === 'update')
                 {
-                    $this.dense('updateDimensions').one('dense-dimensions-updated', readyImage);
+                    $this.dense('updateDimensions').one('denseDimensionChanged', readyImage);
                 }
                 else
                 {
@@ -244,7 +244,7 @@
      * @return   {Object} this
      * @method   updateDimensions
      * @memberof jQuery.fn.dense
-     * @fires    jQuery.fn.dense#dense-dimensions-updated
+     * @fires    jQuery.fn.dense#denseDimensionChanged.dense
      * @example
      * var image = $('img').dense('updateDimensions');
      */
@@ -265,7 +265,7 @@
                     $this.attr({
                         width  : img.width,
                         height : img.height
-                    }).trigger('dense-dimensions-updated');
+                    }).trigger('denseDimensionChanged.dense');
                 });
             }
         });
@@ -382,18 +382,18 @@
     });
 
     /**
-     * This event is invoked when an retina image has finished loading.
+     * This event is invoked when a retina image has finished loading.
      *
-     * @event    jQuery.fn.dense#dense-retina-loaded
+     * @event    jQuery.fn.dense#denseRetinaReady.dense
      * @type     {Object}
      */
 
     /**
-     * This event is invoked when an image's dimensions are
+     * This event is invoked when an image's dimension values
      * have been updated by the <code>updateDimensions</code>
      * method.
      *
-     * @event    jQuery.fn.dense#dense-dimensions-updated
+     * @event    jQuery.fn.dense#denseDimensionChanged.dense
      * @type     {Object}
      */
 }));
