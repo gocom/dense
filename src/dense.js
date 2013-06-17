@@ -131,6 +131,11 @@
      * sure the browser doesn't try to download the normal image variation
      * before the JavaScript driven behaviour kicks in.
      *
+     * Some classes are added to the selected elements while Dense is processing
+     * the document. These classes include <code>dense-image</code>, <code>dense-loading</code>
+     * and <code>dense-ready</code>. These classes can be used to style the images,
+     * or hide them while they are being loaded.
+     *
      * @param    {Object}  [options={}]                  Options
      * @param    {Boolean} [options.ping=null]           Check image existence. If the default <code>NULL</code> checks local images, <code>FALSE</code> disables checking and <code>TRUE</code> checks even external images cross-domain
      * @param    {String}  [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
@@ -154,7 +159,7 @@
             glue       : '_'
         }, options);
 
-        this.filter('img').not('.dense').addClass('dense dense-loading').each(function ()
+        this.filter('img').not('.dense-image').addClass('dense-image dense-loading').each(function ()
         {
             var $this = $(this),
                 image = methods.getImageAttribute.call(this),
@@ -166,7 +171,7 @@
             {
                 if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
                 {
-                    $this.removeClass('dense dense-loading');
+                    $this.removeClass('dense-image dense-loading');
                     return;
                 }
 
