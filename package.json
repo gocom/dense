@@ -22,16 +22,16 @@
         }
     ],
     "devDependencies": {
-        "grunt": "0.4.1",
+        "grunt": "0.4.2",
         "grunt-cli": "~0.1",
-        "grunt-contrib-uglify": "0.2.2",
-        "grunt-contrib-jshint": "0.6.0",
-        "grunt-bumpup": "0.2.0",
-        "jsdoc3": "git+https://github.com/jsdoc3/jsdoc.git#cfff8dd035ad376892139192c03718ce2dcc20f0",
+        "grunt-bumpup": "0.4.2",
+        "grunt-contrib-compress": "0.5.3",
+        "grunt-contrib-jshint": "0.7.2",
+        "grunt-contrib-qunit": "0.2.1",
+        "grunt-contrib-uglify": "0.2.7",
         "grunt-tagrelease": "0.2.0",
         "grunt-shell": "0.2.2",
-        "grunt-contrib-qunit": "0.2.1",
-        "grunt-contrib-compress": "0.5.2"
+        "jsdoc3": "git+https://github.com/jsdoc3/jsdoc.git#cfff8dd035ad376892139192c03718ce2dcc20f0"
     },
     "keywords": [
         "jquery",
