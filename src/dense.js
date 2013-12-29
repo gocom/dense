@@ -136,8 +136,8 @@
      * @fires jQuery.fn.dense#denseRetinaReady.dense
      * @example
      * $('img').dense({
-     *  'ping'      : false,
-     *  'dimension' : 'update'
+     *  ping: false,
+     *  dimension: 'update'
      * });
      */
 
