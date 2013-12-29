@@ -71,7 +71,7 @@
      * Is used to check whether the image URL is external.
      */
 
-    regexProtocol = /^https?:\/\//,
+    regexHasProtocol = /^([a-z]:)?\/\//i,
 
     /**
      * Regular expression that split extensions from the file.
@@ -188,7 +188,7 @@
                     return options.glue + devicePixelRatio + 'x' + extension;
                 });
 
-                ping = options.ping !== false && $.inArray(image, pathStack) === -1 && (options.ping === true || !regexProtocol.test(image) || image.indexOf('://' + document.domain) !== -1);
+                ping = options.ping !== false && $.inArray(image, pathStack) === -1 && (options.ping === true || !regexHasProtocol.test(image) || image.indexOf('//'+document.domain) === 0 || image.indexOf(document.protocol+'://'+document.domain) === 0);
             }
 
             updateImage = function ()
