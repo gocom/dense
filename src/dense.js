@@ -136,14 +136,14 @@
      * and <code>dense-ready</code>. These classes can be used to style the images,
      * or hide them while they are being loaded.
      *
-     * @param    {Object}  [options={}]                  Options
-     * @param    {Boolean} [options.ping=null]           Check image existence. If the default <code>NULL</code> checks local images, <code>FALSE</code> disables checking and <code>TRUE</code> checks even external images cross-domain
-     * @param    {String}  [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
-     * @param    {String}  [options.glue=_]              String that glues the retina "nx" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>
-     * @return   {Object}  this
-     * @method   init
+     * @param {Object} [options={}] Options
+     * @param {Boolean} [options.ping=null] Check image existence. If the default <code>NULL</code> checks local images, <code>FALSE</code> disables checking and <code>TRUE</code> checks even external images cross-domain
+     * @param {String} [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
+     * @param {String} [options.glue=_] String that glues the retina "nx" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>
+     * @return {Object} this
+     * @method init
      * @memberof jQuery.fn.dense
-     * @fires    jQuery.fn.dense#denseRetinaReady.dense
+     * @fires jQuery.fn.dense#denseRetinaReady.dense
      * @example
      * $('img').dense({
      *  'ping'      : false,
@@ -154,9 +154,9 @@
     methods.init = function (options)
     {
         options = $.extend({
-            ping       : null,
-            dimensions : 'preserve',
-            glue       : '_'
+            ping: null,
+            dimensions: 'preserve',
+            glue: '_'
         }, options);
 
         this.each(function ()
@@ -249,10 +249,10 @@
      * return its values. Instead, use the 'dense-dimensions-updated'
      * event to detect when the action is done.
      *
-     * @return   {Object} this
-     * @method   updateDimensions
+     * @return {Object} this
+     * @method updateDimensions
      * @memberof jQuery.fn.dense
-     * @fires    jQuery.fn.dense#denseDimensionChanged.dense
+     * @fires jQuery.fn.dense#denseDimensionChanged.dense
      * @example
      * var image = $('img').dense('updateDimensions');
      */
@@ -271,8 +271,8 @@
                 $(img).on('load.dense', function ()
                 {
                     $this.attr({
-                        width  : img.width,
-                        height : img.height
+                        width: img.width,
+                        height: img.height
                     }).trigger('denseDimensionChanged.dense');
                 });
             }
@@ -282,8 +282,8 @@
     /**
      * Gets device pixel ratio rounded up to the closest integer.
      *
-     * @return   {Integer} The pixel ratio
-     * @method   devicePixelRatio
+     * @return {Integer} The pixel ratio
+     * @method devicePixelRatio
      * @memberof jQuery.fn.dense
      * @example
      * var ratio = $(window).dense('devicePixelRatio');
@@ -327,8 +327,8 @@
      * the given element's attributes. If the devices pixel ratio is greater
      * than the largest specified image, the largest one of the available is used.
      *
-     * @return   {String|Boolean} The attribute value
-     * @method   getImageAttribute
+     * @return {String|Boolean} The attribute value
+     * @method getImageAttribute
      * @memberof jQuery.fn.dense
      * @example
      * var image = $('<div data-1x="image.jpg" data-2x="image_2x.jpg" />').dense('getImageAttribute');
@@ -360,9 +360,9 @@
      * the <code>$.fn.dense()</code> method, that accepts a called method and its options
      * object as its arguments. Both arguments are optional, and either one can be omitted.
      *
-     * @param    {String}  [method=init] The called method
-     * @param    {Object}  [options={}]  Options passed to the method
-     * @class    dense
+     * @param {String} [method=init] The called method
+     * @param {Object} [options={}] Options passed to the method
+     * @class dense
      * @memberof jQuery.fn
      */
 
@@ -392,8 +392,8 @@
     /**
      * This event is invoked when a retina image has finished loading.
      *
-     * @event    jQuery.fn.dense#denseRetinaReady.dense
-     * @type     {Object}
+     * @event jQuery.fn.dense#denseRetinaReady.dense
+     * @type {Object}
      */
 
     /**
@@ -401,7 +401,7 @@
      * have been updated by the <code>updateDimensions</code>
      * method.
      *
-     * @event    jQuery.fn.dense#denseDimensionChanged.dense
-     * @type     {Object}
+     * @event jQuery.fn.dense#denseDimensionChanged.dense
+     * @type {Object}
      */
 }));
