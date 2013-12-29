@@ -159,10 +159,18 @@
             glue       : '_'
         }, options);
 
-        this.filter('img').not('.dense-image').addClass('dense-image dense-loading').each(function ()
+        this.each(function ()
         {
-            var $this = $(this),
-                image = methods.getImageAttribute.call(this),
+            var $this = $(this);
+
+            if (!$this.is('img') || $this.hasClass('dense-image'))
+            {
+                return;
+            }
+
+            $this.addClass('dense-image dense-loading');
+
+            var image = methods.getImageAttribute.call(this),
                 originalImage = $this.attr('src'),
                 ping = false,
                 updateImage;
