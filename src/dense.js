@@ -85,18 +85,7 @@
      * Device pixel ratio.
      */
 
-    devicePixelRatio,
-
-    /**
-     * Skipped image file extensions.
-     *
-     * Vectors don't need automatic pixel ratio support.
-     */
-
-    skipExtensions =
-    [
-        'svg'
-    ];
+    devicePixelRatio;
 
     /**
      * Init is the default method responsible for rendering 
@@ -140,6 +129,7 @@
      * @param {Boolean} [options.ping=null] Check image existence. If the default <code>NULL</code> checks local images, <code>FALSE</code> disables checking and <code>TRUE</code> checks even external images cross-domain
      * @param {String} [options.dimensions=preserve] What to do with the image's <code>width</code> and <code>height</code> attributes. Either <code>update</code>, <code>remove</code> or <code>preserve</code>
      * @param {String} [options.glue=_] String that glues the retina "nx" suffix to the image. This option can be used to change the naming convention between the two commonly used practices, <code>image@2x.jpg</code> and <code>image_2x.jpg</code>
+     * @param {Array} [options.skipExtensions=['svg']] Skipped image file extensions. There might be situations where you might want to exclude vector image formats
      * @return {Object} this
      * @method init
      * @memberof jQuery.fn.dense
@@ -156,7 +146,8 @@
         options = $.extend({
             ping: null,
             dimensions: 'preserve',
-            glue: '_'
+            glue: '_',
+            skipExtensions: ['svg']
         }, options);
 
         this.each(function ()
@@ -177,7 +168,7 @@
 
             if (!image)
             {
-                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), skipExtensions))
+                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), options.skipExtensions))
                 {
                     $this.removeClass('dense-image dense-loading');
                     return;
