@@ -384,7 +384,7 @@
      * has a <code>dense-retina</code> class.
      */
 
-    $(document).ready(function ()
+    $(function ()
     {
         $('body.dense-retina img').dense();
     });
