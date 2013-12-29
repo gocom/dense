@@ -188,7 +188,7 @@
                     return options.glue + devicePixelRatio + 'x' + extension;
                 });
 
-                ping = options.ping !== false && $.inArray(image, pathStack) === -1 && (options.ping === true || !regexHasProtocol.test(image) || image.indexOf('//'+document.domain) === 0 || image.indexOf(document.protocol+'://'+document.domain) === 0);
+                ping = options.ping !== false && $.inArray(image, pathStack) === -1 && (options.ping === true || !regexHasProtocol.test(image) || image.indexOf('//'+document.domain) === 0 || image.indexOf(document.location.protocol+'//'+document.domain) === 0);
             }
 
             updateImage = function ()
