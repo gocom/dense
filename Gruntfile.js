@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>.min.js': ['src/*.js']
+                    'dist/<%= pkg.name %>.js': ['src/*.js']
                 }
             }
         },
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'dist/',
-                        src: ['*.js'],
+                        src: ['<%= pkg.name %>.js'],
                         dest: '<%= pkg.name %>/',
                         filter: 'isFile'
                     },
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'src/',
                         src: ['*.js'],
-                        dest: '<%= pkg.name %>/',
+                        dest: '<%= pkg.name %>/src/',
                         filter: 'isFile'
                     }
                 ]
