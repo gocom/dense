@@ -1,6 +1,7 @@
-/*jshint strict:false */
+module.exports = function (grunt)
+{
+    'use strict';
 
-module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-bumpup');
