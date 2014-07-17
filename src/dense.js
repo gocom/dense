@@ -88,7 +88,7 @@
     devicePixelRatio;
 
     /**
-     * Init is the default method responsible for rendering 
+     * Init is the default method responsible for rendering
      * a pixel-ratio-aware images.
      *
      * This method is used to select the images that
@@ -150,11 +150,13 @@
             skipExtensions: ['svg']
         }, options);
 
+        var retina_suffix = options.glue + devicePixelRatio + 'x', regx = new RegExp(retina_suffix, "i");
+
         this.each(function ()
         {
             var $this = $(this);
 
-            if (!$this.is('img') || $this.hasClass('dense-image'))
+            if (!$this.is('img') || $this.hasClass('dense-image') || $this.hasClass('no-dense') || $this.hasClass('already-dense'))
             {
                 return;
             }
@@ -164,11 +166,17 @@
             var image = methods.getImageAttribute.call(this),
                 originalImage = $this.attr('src'),
                 ping = false,
+                extension = originalImage.split('.').pop().split(/[\?\#]/).shift().toLowerCase(),
                 updateImage;
+
+            if(regx.test(originalImage) || $.inArray(extension, options.skipExtensions) >= 0){
+                $this.addClass('already-dense').removeClass('dense-loading');
+                return;
+            }
 
             if (!image)
             {
-                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), options.skipExtensions))
+                if (!originalImage || devicePixelRatio === 1)
                 {
                     $this.removeClass('dense-image dense-loading');
                     return;
