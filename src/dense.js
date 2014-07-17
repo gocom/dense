@@ -150,7 +150,7 @@
             skipExtensions: ['svg']
         }, options);
 
-        var retina_suffix = options.glue + devicePixelRatio + 'x', regx = new RegExp(retina_suffix, "i");
+        var retina_suffix = options.glue + devicePixelRatio + 'x', regx = new RegExp(retina_suffix + "\.[a-zA-Z0-9]*", "i");
 
         this.each(function ()
         {
