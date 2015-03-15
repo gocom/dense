@@ -168,7 +168,7 @@
 
             if (!image)
             {
-                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), options.skipExtensions))
+                if (!originalImage || devicePixelRatio === 1 || $.inArray(originalImage.split('.').pop().split(/[\?\#]/).shift(), options.skipExtensions) !== -1)
                 {
                     $this.removeClass('dense-image dense-loading');
                     return;
