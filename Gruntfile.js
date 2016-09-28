@@ -16,7 +16,9 @@ module.exports = function (grunt)
         uglify: {
             options: {
                 banner: '/*! <%= pkg.title %> v<%= pkg.version %> | Copyright (C) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> | <%= pkg.homepage %> | Released under the MIT License */\n',
-                report: 'gzip'
+                // report cannot be `gzip` due to this bug:
+                // <https://github.com/mathiasbynens/grunt-yui-compressor/issues/28#issuecomment-77835994>
+                report: 'min'
             },
             dist: {
                 files: {

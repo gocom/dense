@@ -2,7 +2,7 @@
     "name": "dense",
     "title": "Dense",
     "description": "Retina images plugin for jQuery",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "homepage": "http://dense.rah.pw/",
     "author": {
         "name": "Jukka Svahn",
@@ -22,15 +22,15 @@
         }
     ],
     "devDependencies": {
-        "grunt": "0.4.2",
-        "grunt-cli": "~0.1",
-        "grunt-bumpup": "0.4.2",
-        "grunt-contrib-compress": "0.5.3",
-        "grunt-contrib-jshint": "0.7.2",
-        "grunt-contrib-qunit": "0.2.1",
-        "grunt-contrib-uglify": "0.2.7",
-        "grunt-tagrelease": "0.2.0",
-        "grunt-shell": "0.2.2",
+        "grunt": "1.0.1",
+        "grunt-cli": "~1.2",
+        "grunt-bumpup": "0.6.3",
+        "grunt-contrib-compress": "1.3.0",
+        "grunt-contrib-jshint": "1.0.0",
+        "grunt-contrib-qunit": "1.2.0",
+        "grunt-contrib-uglify": "2.0.0",
+        "grunt-tagrelease": "0.3.3",
+        "grunt-shell": "2.0.0",
         "jsdoc3": "git+https://github.com/jsdoc3/jsdoc.git#cfff8dd035ad376892139192c03718ce2dcc20f0"
     },
     "keywords": [
