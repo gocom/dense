@@ -8,9 +8,11 @@ Dense is a jQuery plugin for serving retina-ready, high pixel ratio images with 
 Install
 -----
 
-[Download package](http://dense.rah.pw/download) or using [Bower](http://bower.io):
+[Download package](http://dense.rah.pw/download) or install using [Bower](http://bower.io) or [NPM](http://npmjs.com):
 
     $ bower install dense
+
+    $ npm install dense
 
 Usage
 -----
@@ -23,6 +25,12 @@ Using Dense is simple. Include the plugin and initialize its method:
 <script>
     $('img').dense();
 </script>
+```
+
+If you're using `import` or `require`:
+
+```js
+require('dense/src/dense.js');
 ```
 
 For more instructions and options see the [documentation](http://dense.rah.pw).
